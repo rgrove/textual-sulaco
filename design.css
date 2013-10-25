@@ -45,12 +45,12 @@ a:hover {
 }
 
 .sender {
-    font-weight: bold;
-    max-width: 12em;
-    min-width: 6em;
+    font-weight: 600;
     overflow: hidden;
     text-align: right;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 9em;
 }
 
 body[type*=server] .sender { display: none; }
