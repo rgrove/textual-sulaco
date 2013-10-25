@@ -1,11 +1,10 @@
 @charset "utf-8";
 
 /* Basic Body Structure */
-
 body {
     background: #222;
     color: #cfcfcf;
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
     word-wrap: break-word;
 }
@@ -22,21 +21,16 @@ a:hover {
 }
 
 #body_home {
-    border-collapse: collapse;
     bottom: 0;
-    display: table;
+    left: 0;
     position: absolute;
+    right: 0;
     top: 0;
-}
-
-.line {
-    display: table-row;
 }
 
 .message,
 .sender,
 .time {
-    display: table-cell;
     padding: 4px 8px;
 }
 
@@ -44,9 +38,6 @@ a:hover {
     max-width: 90%;
     width: 100%;
 }
-
-.event .message { color: #666; }
-.event .message:before { content: '» '; }
 
 .sender,
 .time {
@@ -62,10 +53,17 @@ a:hover {
     text-overflow: ellipsis;
 }
 
+body[type*=server] .sender { display: none; }
+
 .time {
     color: #afafaf;
     font-size: 0.8em;
     white-space: nowrap;
+}
+
+.line {
+    display: -webkit-flex;
+    -webkit-flex-flow: row;
 }
 
 .line[nickname-type*=myself] .message {
@@ -83,11 +81,23 @@ a:hover {
 }
 
 .event .message {
-    font-size: 0.9em;
+    color: #666;
+}
+
+.event .message:before {
+    content: '» ';
+}
+
+body[type*=server] .event .message {
+    font-size: inherit;
+}
+
+body[type*=server] .event .message:before {
+    content: '';
 }
 
 .event .sender {
-    background: transparent;
+    background: inherit;
 }
 
 .text:hover {
@@ -103,7 +113,12 @@ a:hover {
 
 .text[highlight*=true] {
     color: #fff;
-    outline: 1px solid #284e84;
+    border: 1px solid #284e84;
+    outline: none;
+}
+
+.text[highlight*=true] + .text[highlight*=true] {
+    border-top: none;
 }
 
 .text[highlight*=true] .message,
@@ -112,19 +127,19 @@ a:hover {
     background-color: #1b3458;
 }
 
+.znc-playback-end {
+    border-bottom: 1px dashed #9f9f9f;
+}
+
+.znc-playback-start {
+    border-top: 1px dashed #9f9f9f;
+}
+
 /* TODO */
 /*#mark {
     border-bottom: 2px dashed #afafaf;
 }
 */
-.znc-playback-end {
-    border-bottom: 2px dashed #afafaf;
-}
-
-.znc-playback-start {
-    border-top: 2px dashed #afafaf;
-}
-
 
 /* Loading Screen */
 body div#loading_screen {
@@ -146,17 +161,17 @@ body div#loading_screen {
 }
 
 /* Topic Bar */
-
 #topic_bar {
     background: #333;
-    /*background: -webkit-linear-gradient(top, #0F0F0F 0%, #262626 100%);*/
     border-bottom: 1px solid #404040;
-    color: #8E8E8E;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.50);
+    font-weight: bold;
     left: 0;
-    opacity: 1 !important; /* Overrides JS opacity */
-    padding: 2px 0.5em 3px;
+    opacity: 0.9 !important; /* Overrides JS opacity. */
+    padding: 4px 12px;
     position: fixed;
     right: 0;
+    text-align: center;
     top: 0;
     z-index: 2;
 }
