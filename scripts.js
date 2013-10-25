@@ -102,7 +102,7 @@ Textual.viewFinishedLoading = function () {
 
     setTimeout(function () {
         Textual.scrollToBottomOfView();
-    }, 100);
+    }, 300);
 };
 
 Textual.viewFinishedReload = function () {

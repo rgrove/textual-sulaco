@@ -4,8 +4,11 @@
 body {
     background: #222;
     color: #cfcfcf;
+    font-family: 'Myriad Pro Light';
+    font-size: 16pt;
     line-height: 1.4;
     margin: 0;
+    overflow-x: hidden;
     word-wrap: break-word;
 }
 
@@ -23,6 +26,7 @@ a:hover {
 #body_home {
     bottom: 0;
     left: 0;
+    padding: 2em 0 0;
     position: absolute;
     right: 0;
     top: 0;
@@ -50,7 +54,7 @@ a:hover {
     text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 9em;
+    width: 10em;
 }
 
 body[type*=server] .sender { display: none; }
@@ -115,7 +119,13 @@ body[type*=server] .event .message:before {
 .text[highlight*=true] {
     color: #fff;
     border: 1px solid #284e84;
+    border-left: none;
+    border-right: none;
     outline: none;
+}
+
+.text[highlight*=true]:hover {
+    border-color: #3069ab;
 }
 
 .text[highlight*=true] + .text[highlight*=true] {
@@ -128,6 +138,12 @@ body[type*=server] .event .message:before {
     background-color: #1b3458;
 }
 
+.text[highlight*=true]:hover .message,
+.text[highlight*=true]:hover .sender,
+.text[highlight*=true]:hover .time {
+    background-color: #204571;
+}
+
 .znc-playback-end {
     border-bottom: 1px dashed #9f9f9f;
 }
@@ -136,11 +152,11 @@ body[type*=server] .event .message:before {
     border-top: 1px dashed #9f9f9f;
 }
 
-/* TODO */
-/*#mark {
-    border-bottom: 2px dashed #afafaf;
+#mark {
+    border-bottom: 1px dotted #9f9f9f;
+    margin: 1px 0;
+    -webkit-transition: 0.2s linear;
 }
-*/
 
 /* Loading Screen */
 body div#loading_screen {
@@ -166,7 +182,7 @@ body div#loading_screen {
     background: #333;
     border-bottom: 1px solid #404040;
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.50);
-    font-weight: bold;
+    font-weight: 600;
     left: 0;
     opacity: 0.9 !important; /* Overrides JS opacity. */
     padding: 4px 12px;
@@ -185,7 +201,6 @@ body div#loading_screen {
 }
 
 /* Images */
-
 a img {
     border: 0;
 }
