@@ -56,8 +56,9 @@ a:hover {
 body[type*=server] .sender { display: none; }
 
 .time {
-    color: #afafaf;
+    color: #888;
     font-size: 0.8em;
+    line-height: 1.8;
     white-space: nowrap;
 }
 
