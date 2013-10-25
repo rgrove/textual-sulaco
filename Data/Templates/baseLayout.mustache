@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html type="{{viewTypeToken}}"
+    {{#isChannelView}}
+        channelname="{{channelName}}"
+    {{/isChannelView}}
+
+    {{#isPrivateMessageView}}
+        channelname="{{channelName}}"
+    {{/isPrivateMessageView}}
+
+    dir="{{textDirectionToken}}">
+
+<head>
+    <meta charset="{{userConfiguredTextEncoding}}">
+
+    <link rel="stylesheet" href="{{activeStyleAbsolutePath}}design.css?u={{cacheToken}}">
+
+    <script src="{{applicationResourcePath}}/JavaScript/API/core.js"></script>
+    <script src="{{activeStyleAbsolutePath}}scripts.js?u={{cacheToken}}"></script>
+
+    <style>
+        html, body, body[type], body {
+            font-family: '{{userConfiguredFontName}}';
+            font-size: {{userConfiguredFontSize}}pt;
+        }
+
+        {{#nicknameIndentationAvailable}}
+            body .time {
+                width: {{predefinedTimestampWidth}}px;
+            }
+        {{/nicknameIndentationAvailable}}
+
+        {{#windowAntialiasingDisabled}}
+            body {
+                -webkit-font-smoothing: none;
+            }
+        {{/windowAntialiasingDisabled}}
+    </style>
+</head>
+<body type="{{viewTypeToken}}"
+    {{#isChannelView}}
+        channelname="{{channelName}}"
+    {{/isChannelView}}
+
+    {{#isPrivateMessageView}}
+        channelname="{{channelName}}"
+    {{/isPrivateMessageView}}
+
+    dir="{{textDirectionToken}}">
+
+{{!
+The elements "body_home," "loading_screen," "topic_bar," and "mark" must always
+remain the same, as the ID value of these elements are used internally by
+Textual.
+}}
+
+<div id="body_home">{{! Filled at runtime. }}</div>
+<div id="loading_screen">Loading&hellip;</div>
+
+{{#isChannelView}}
+    <div id="topic_bar">{{{formattedTopicValue}}}</div>
+{{/isChannelView}}
+
+</body>
+</html>
