@@ -4,8 +4,8 @@
 body {
     background: #222;
     color: #cfcfcf;
-    font-family: 'Myriad Pro Light';
-    font-size: 16pt;
+    font-family: 'Myriad Pro';
+    font-size: 16px;
     line-height: 1.4;
     margin: 0;
     overflow-x: hidden;
@@ -26,16 +26,20 @@ a:hover {
 #body_home {
     bottom: 0;
     left: 0;
-    padding: 2em 0 0;
+    padding: 2em 0 4px;
     position: absolute;
     right: 0;
     top: 0;
 }
 
+body[type*=server] #body_home {
+    padding: 2px 0;
+}
+
 .message,
 .sender,
 .time {
-    padding: 4px 8px;
+    padding: 4px 8px 3px;
 }
 
 .message {
@@ -85,7 +89,7 @@ body[type*=server] .sender { display: none; }
     padding-right: 2px;
 }
 
-.event .message {
+body[type*=channel] .event .message {
     color: #666;
 }
 
@@ -94,7 +98,10 @@ body[type*=server] .sender { display: none; }
 }
 
 body[type*=server] .event .message {
+    color: #999;
     font-size: inherit;
+    padding-left: 1em;
+    padding-right: 2em;
 }
 
 body[type*=server] .event .message:before {
@@ -105,19 +112,26 @@ body[type*=server] .event .message:before {
     background: inherit;
 }
 
-.text:hover {
+.text:hover,
+body[type*=server] .line:hover {
     outline: 1px solid #666;
 }
 
 .text:hover .message,
 .text:hover .sender,
-.text:hover .time {
+.text:hover .time,
+body[type*=server] .line:hover .message,
+body[type*=server] .line:hover .time {
     background-color: #444;
     color: #fff;
 }
 
-.text[highlight*=true] {
+.text[highlight*=true],
+.text[highlight*=true] .time {
     color: #fff;
+}
+
+.text[highlight*=true] {
     border: 1px solid #284e84;
     border-left: none;
     border-right: none;
@@ -181,11 +195,12 @@ body div#loading_screen {
 #topic_bar {
     background: #333;
     border-bottom: 1px solid #404040;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.50);
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.8);
+    color: #efefef;
     font-weight: 600;
     left: 0;
     opacity: 0.9 !important; /* Overrides JS opacity. */
-    padding: 4px 12px;
+    padding: 4px 12px 2px;
     position: fixed;
     right: 0;
     text-align: center;
@@ -195,8 +210,8 @@ body div#loading_screen {
 
 #topic_bar a,
 #topic_bar span.channel {
-    color: #8E8E8E;
-    border-color: #8E8E8E;
+    color: #f5f5f5;
+    border-color: #f5f5f5;
     text-shadow: 1px 1px rgba(10, 10, 10, 0.7);
 }
 
@@ -211,276 +226,42 @@ img {
     margin: 15px 15px 12px 15px;
 }
 
-/* Remember Line */
-
-/*div[id=mark] {
-    position: relative;
-    margin-top: -1px;
-    border-bottom: 1px dotted;
-    border-color: #444;
-    -webkit-transition: 0.2s linear;
-}
-*/
-/* NOTICE/CTCP/WALLOPS */
-
-/*
-body div.line[type*=ctcp],
-body div.line[type*=notice],
-body div.line[type*=wallops] {
-    color: #f00;
-    background: #400;
-    position: relative;
-    padding: 2px 5px 2px 5px;
-    border-top: 1px solid #811;
-    border-bottom: 1px solid #811;
-}
-
-body div[type*=notice] .sender {
-    color: #f00;
-    font-weight: 700;
-}
-*/
-
-/* PRIVMSG */
-
-/*
-body div.line[type*=privmsg][highlight=false] {
-    padding: 3px 5px 3px 5px;
-}
-
-body div.line[type*=privmsg][highlight=true],
-body div.line[type*=action][highlight=true] {
-    font-weight: normal;
-    padding: 2px 5px 2px 5px;
-    border-top: 1px solid #988C00;
-    border-bottom: 1px solid #988C00;
-    background-color: #362C00 !important;
-}
-
-body div[type="privmsg"] .message {
-    color: #aaa;
-}
-
-body div[type*=privmsg] p[type*=myself] .message {
-    color: #fafafa;
-}
-
-body div[type*=privmsg] .sender {
-    font-weight: 700;
-}
-*/
-
-/* ACTION */
-
-/*
-body div.line[type*=action] {
-     padding: 3px 5px 3px 5px;
-}
-
-body div[type="action"] .message {
-    color: #aaa;
-}
-
-body div[type*=action] .sender {
-    font-weight: 700;
-}
-
-body div[type*=action] p[type*=myself] .sender,
-body div[type*=action] p[type*=myself] .message {
-    color: #B52CF6;
-}
-
-body div[type*=action] .sender:before {
-    content: "\2022";
-    margin-right: 0.4em;
-}
-
-body div[type*=action] .sender:after {
-    content: "";
-      /* margin-right: 0.4em;
-}
-*/
-
-/* DEBUG/INVITE */
-
-/*
-body div.line[type*=invite],
-body div.line[type*=debug] ,
-body div.line[type*=rawhtml] {
-    color: #777;
-      z-index: 190;
-    background: #222;
-      position: relative;
-     padding: 2px 5px 2px 5px;
-    border-top: 1px solid #444;
-    border-bottom: 1px solid #444;
-}
-*/
-
-/* GENERAL EVENT */
-/*
-body div.line[type*=join],
-body div.line[type*=part],
-body div.line[type*=kick],
-body div.line[type*=quit],
-body div.line[type*=kill],
-body div.line[type*=nick],
-body div.line[type*=mode],
-body div.line[type*=topic],
-body div.line[type*=website] {
-    padding: 3px 5px 3px 5px;
-    color: #666;
-}
-
-div[type*=join] .message:before {
-    content: "→";
-    color: #0c0;
-}
-
-div[type*=kick] .message:before,
-div[type*=part] .message:before,
-div[type*=quit] .message:before {
-    content: "←";
-    color: #e00;
-}
-
-div[type*=nick] .message:before {
-    content:"•";
-    color: #0c0;
-}
-*/
 /* Nickname Colors */
+body .text .sender[type*=myself] { color: #ff8c00; }
 
-body .text .sender[type*=myself] {
-    color: #ff7529;
-}
+body .sender[type*=normal][colornumber='0']  { color: #7cfc00; }
+body .sender[type*=normal][colornumber='1']  { color: #c2ff40; }
+body .sender[type*=normal][colornumber='2']  { color: #87ceeb; }
+body .sender[type*=normal][colornumber='3']  { color: #e1c4ff; }
+body .sender[type*=normal][colornumber='4']  { color: #6495ed; }
+body .sender[type*=normal][colornumber='5']  { color: #ff69b4; }
+body .sender[type*=normal][colornumber='6']  { color: #ffb6c1; }
+body .sender[type*=normal][colornumber='7']  { color: #48d1cc; }
+body .sender[type*=normal][colornumber='8']  { color: #ee82ee; }
+body .sender[type*=normal][colornumber='9']  { color: #f66e72; }
+body .sender[type*=normal][colornumber='10'] { color: #69ff89; }
+body .sender[type*=normal][colornumber='11'] { color: #ffe170; }
+body .sender[type*=normal][colornumber='12'] { color: #95d38f; }
+body .sender[type*=normal][colornumber='13'] { color: #7eb6be; }
+body .sender[type*=normal][colornumber='14'] { color: #f3d8e2; }
+body .sender[type*=normal][colornumber='15'] { color: #f66e72; }
+body .sender[type*=normal][colornumber='16'] { color: #faa4a6; }
+body .sender[type*=normal][colornumber='17'] { color: #ffd4a8; }
+body .sender[type*=normal][colornumber='18'] { color: #ffeba5; }
+body .sender[type*=normal][colornumber='19'] { color: #bae2b6; }
+body .sender[type*=normal][colornumber='20'] { color: #aad0d4; }
+body .sender[type*=normal][colornumber='21'] { color: #a8d0ef; }
+body .sender[type*=normal][colornumber='22'] { color: #98a3ff; }
+body .sender[type*=normal][colornumber='23'] { color: #c09bc3; }
+body .sender[type*=normal][colornumber='24'] { color: #c38074; }
+body .sender[type*=normal][colornumber='25'] { color: #a6e1a4; }
+body .sender[type*=normal][colornumber='26'] { color: #7f99e1; }
+body .sender[type*=normal][colornumber='27'] { color: #5ba2e1; }
+body .sender[type*=normal][colornumber='28'] { color: #e1de7d; }
+body .sender[type*=normal][colornumber='29'] { color: #e199a8; }
+body .sender[type*=normal][colornumber='30'] { color: #b5a0e1; }
 
-body .sender[type*=normal][colornumber='0'] {
-    color: #7CFC00;
-}
-
-body .sender[type*=normal][colornumber='1'] {
-    color: #F4A460;
-}
-
-body .sender[type*=normal][colornumber='2'] {
-    color: #87CEEB;
-}
-
-body .sender[type*=normal][colornumber='3'] {
-    color: #FF8C00;
-}
-
-body .sender[type*=normal][colornumber='4'] {
-    color: #6495ED;
-}
-
-body .sender[type*=normal][colornumber='5'] {
-    color: #FF69B4;
-}
-
-body .sender[type*=normal][colornumber='6'] {
-    color: #FFB6C1;
-}
-
-body .sender[type*=normal][colornumber='7'] {
-    color: #48D1CC;
-}
-
-body .sender[type*=normal][colornumber='8'] {
-    color: #EE82EE;
-}
-
-body .sender[type*=normal][colornumber='9'] {
-    color: #f66e72;
-}
-
-body .sender[type*=normal][colornumber='10'] {
-    color: #ffbe76;
-}
-
-body .sender[type*=normal][colornumber='11'] {
-    color: #ffe170;
-}
-
-body .sender[type*=normal][colornumber='12'] {
-    color: #95d38f;
-}
-
-body .sender[type*=normal][colornumber='13'] {
-    color: #7eb6be;
-}
-
-body .sender[type*=normal][colornumber='14'] {
-    color: #f3d8e2;
-}
-
-body .sender[type*=normal][colornumber='15'] {
-    color: #f66e72;
-}
-
-body .sender[type*=normal][colornumber='16'] {
-    color: #faa4a6;
-}
-
-body .sender[type*=normal][colornumber='17'] {
-    color: #ffd4a8;
-}
-
-body .sender[type*=normal][colornumber='18'] {
-    color: #ffeba5;
-}
-
-body .sender[type*=normal][colornumber='19'] {
-    color: #bae2b6;
-}
-
-body .sender[type*=normal][colornumber='20'] {
-    color: #aad0d4;
-}
-
-body .sender[type*=normal][colornumber='21'] {
-    color: #a8d0ef;
-}
-
-/*body .sender[type*=normal][colornumber='22'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='23'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='24'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='25'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='26'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='27'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='28'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='29'] {
-    color: #;
-}
-
-body .sender[type*=normal][colornumber='30'] {
-    color: #;
-}
-*/
 /* mIRC Color Codes */
-
 .effect[color-number='0']  { color: #ffffff; }
 .effect[color-number='1']  { color: #000000; }
 .effect[color-number='2']  { color: #000088; }
