@@ -1,11 +1,10 @@
-/* Defined in: "Textual.app -> Contents -> Resources -> JavaScript -> API -> core.js" */
-
 var doc = document,
     qs  = doc.querySelector;
 
 // -- Sulaco -------------------------------------------------------------------
-var Sulaco = {
+var Sulaco;
 
+Sulaco = {
     lineCache: {},
     playbackMode: false,
 
@@ -29,22 +28,16 @@ var Sulaco = {
     },
 
     getLineEl: function (lineNum) {
-        if (typeof lineNum !== 'string') {
-            if (lineNum && lineNum.classList
-                    && lineNum.classList.contains('line')) {
-                return lineNum;
-            }
-
-            return null;
+        if (typeof lineNum === 'string') {
+            return doc.getElementById('line' + lineNum);
         }
 
-        var cached = Sulaco.lineCache[lineNum];
-
-        if (cached) {
-            return cached;
+        if (lineNum && lineNum.classList
+                && lineNum.classList.contains('line')) {
+            return lineNum;
         }
 
-        return (Sulaco.lineCache[lineNum] = doc.getElementById('line' + lineNum));
+        return null;
     },
 
     getLineType: function (line) {
@@ -86,12 +79,27 @@ var Sulaco = {
         }
 
         if (Sulaco.playbackMode) {
+            var match;
+
             line.classList.add('znc-playback');
+
+            message = Sulaco.getMessage(line);
+            match   = message.match(/^\[(\d\d:\d\d:\d\d)\] /);
+
+            if (match) {
+                var msgEl = line.querySelector('.message');
+
+                line.querySelector('.time').textContent = match[1];
+                msgEl.innerHTML = msgEl.innerHTML.replace(/^\s*\[\d\d:\d\d:\d\d\]/, '');
+            }
         }
     }
 };
 
 // -- Textual ------------------------------------------------------------------
+
+// Defined in: "Textual.app -> Contents -> Resources -> JavaScript -> API -> core.js"
+
 Textual.newMessagePostedToView = function (lineNum) {
     Sulaco.handleBufferPlayback(lineNum);
     Sulaco.coalesceMessages(lineNum);
