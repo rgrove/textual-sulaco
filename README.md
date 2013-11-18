@@ -1,8 +1,13 @@
-Sulaco - A style for the Textual IRC client
-===========================================
+Sulaco Textual Style
+====================
 
-Wasn't planning on releasing this yet, but if you're here, hello! I'll get something more useful here soon.
-
-## Screenshot
+Sulaco is a dark theme for the Textual IRC client. It looks nice.
 
 ![Screenshot](http://cdn.pieisgood.org/screenshots/textual-sulaco.png)
+
+## Installing
+
+```
+cd ~/Library/Containers/com.codeux.irc.textual/Data/Library/Application\ Support/Textual\ IRC/Styles
+git clone git://github.com/rgrove/textual-sulaco.git Sulaco
+```
