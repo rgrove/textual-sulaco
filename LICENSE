@@ -1,37 +1,3 @@
-Sulaco Textual Style
-====================
-
-Sulaco is a dark theme for the Textual IRC client. It looks nice.
-
-![Screenshot](http://cdn.pieisgood.org/screenshots/textual-sulaco.png)
-
-## Features
-
-* Easy on the eyes.
-
-* Doesn't clobber any of your preferences. Wanna use a light UI with Sulaco?
-  Fine. Wanna change how nicknames or timestamps are formatted? Cool.
-
-* Looks great with a wide variety of fonts. My favorite is Myriad Pro Light
-  16pt, which is just gorgeous on a Retina display.
-
-* Coalesces multiple consecutive messages from the same sender rather than
-  displaying the same nickname over and over.
-
-* Provides handy start and end markers for ZNC playback.
-
-* Plucks the ugly in-message timestamps out of ZNC playback and puts them in the
-  timestamp column where they belong.
-
-## Installing
-
-```
-cd ~/Library/Containers/com.codeux.irc.textual/Data/Library/Application\ Support/Textual\ IRC/Styles
-git clone git://github.com/rgrove/textual-sulaco.git Sulaco
-```
-
-## License
-
 Copyright (c) 2013 Ryan Grove (ryan@wonko.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
