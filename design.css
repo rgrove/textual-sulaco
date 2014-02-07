@@ -220,10 +220,15 @@ a img {
     border: 0;
 }
 
+a img:hover {
+    outline: 2px solid #284e84;
+}
+
 img {
     display: block;
+    margin: 15px 15px 12px 0;
+    max-height: 40%;
     max-width: 95%;
-    margin: 15px 15px 12px 15px;
 }
 
 /* Nickname Colors */
