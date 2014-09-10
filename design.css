@@ -174,7 +174,6 @@ body[type*=server] .line:hover .time {
 
 /* Loading Screen */
 body div#loading_screen {
-    display:none;
     position:absolute;
     top: 50%;
     left: 50%;
