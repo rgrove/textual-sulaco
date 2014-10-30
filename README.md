@@ -4,7 +4,7 @@ Sulaco Textual Style
 Sulaco is a dark theme for the Textual IRC client. It looks nice. It works well
 with Textual 5.
 
-![Screenshot](http://cdn.pieisgood.org/screenshots/textual-sulaco.png)
+![Screenshot](http://pie.gd/i/141030x3xzz.png)
 
 ## Features
 
