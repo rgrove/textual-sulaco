@@ -13,11 +13,16 @@
 <head>
     <meta charset="{{userConfiguredTextEncoding}}">
 
-    <link rel="stylesheet" href="{{activeStyleAbsolutePath}}design.css?u={{cacheToken}}">
+    <link rel="stylesheet" type="text/css" href="{{activeStyleAbsolutePath}}/design.css?{{cacheToken}}" charset="UTF-8">
 
-    <script src="{{applicationResourcePath}}/JavaScript/API/core.js"></script>
-    <script src="{{applicationResourcePath}}/JavaScript/API/corePrivate.js"></script>
-    <script src="{{activeStyleAbsolutePath}}scripts.js?u={{cacheToken}}"></script>
+	<script src="{{applicationResourcePath}}/JavaScript/API/core.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="{{applicationResourcePath}}/JavaScript/API/corePrivate.js" type="text/javascript" charset="UTF-8"></script>
+
+	<script type="text/javascript">
+		Textual.initializeCore("{{applicationResourcePath}}");
+	</script>
+
+	<script src="{{activeStyleAbsolutePath}}/scripts.js?{{cacheToken}}" type="text/javascript" charset="UTF-8"></script>
 
     <style>
         html, body, body[type], body {
@@ -47,7 +52,11 @@
         channelname="{{channelName}}"
     {{/isPrivateMessageView}}
 
-    dir="{{textDirectionToken}}">
+    dir="{{textDirectionToken}}"
+    onload="Textual.viewBodyDidLoadInt()"
+	{{#usesCustomScrollers}}
+	   customscroller="true"
+	{{/usesCustomScrollers}}>
 
 {{!
 The elements "body_home," "loading_screen," "topic_bar," and "mark" must always
@@ -59,7 +68,7 @@ Textual.
 <div id="loading_screen">Loading&hellip;</div>
 
 {{#isChannelView}}
-    <div id="topic_bar">{{{formattedTopicValue}}}</div>
+    <div id="topic_bar" ondblclick="Textual.topicBarDoubleClicked()">(No Topic)</div>
 {{/isChannelView}}
 
 </body>

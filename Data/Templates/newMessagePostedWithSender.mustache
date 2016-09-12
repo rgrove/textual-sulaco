@@ -1,8 +1,9 @@
 <div type="{{lineType}}"
-		highlight="{{highlightAttributeRepresentation}}"
-		class="line {{lineClassAttributeRepresentation}}"
-		id="line{{lineNumber}}"
-		nickname-type="{{nicknameType}}">
+	 command="{{command}}"
+	 highlight="{{highlightAttributeRepresentation}}"
+	 class="line {{lineClassAttributeRepresentation}}"
+	 id="line{{lineNumber}}"
+	 nickname-type="{{nicknameType}}">
 
 {{#isEncrypted}}
 	{{{encryptedMessageLockTemplate}}}
@@ -24,11 +25,10 @@
 
 		{{#inlineMediaAvailable}}
 			{{#inlineMediaArray}}
-				<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}', true)"><img src="{{{imageURL
-}}}" class="inlineimage" id="inlineImage-{{anchorInlineImageUniqueID}}" style="display: none; max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
+				<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}', true)"><img src="{{{imageURL}}}" class="inlineimage" id="inlineImage-{{anchorInlineImageUniqueID}}" style="display: none; max-width: {{preferredMaximumWidth}}px;" title="Hide image by shift clicking." /></a>
 			{{/inlineMediaArray}}
 		{{/inlineMediaAvailable}}
 	</span>
 
-	<span class="time">{{formattedTimestamp}}</span>
+	<span class="time" title="{{localizedTimestamp}}">{{formattedTimestamp}}</span>
 </div>
