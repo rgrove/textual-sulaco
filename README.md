@@ -9,7 +9,7 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 * Add separating lines between messages.
 
-* Make event text smaller.
+* Make event text smaller, darken text unless hovered over.
 
 * Fix nickname coloring not working.
 
@@ -22,8 +22,6 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 * Emphasizes what you need.
 
 * De-emphasizes what you don’t.
-
-* Easy on the eyes.
 
 * Doesn't clobber any of your preferences. Wanna use a light UI with Sulaco?
   Fine. Wanna change how nicknames or timestamps are formatted? Cool.
