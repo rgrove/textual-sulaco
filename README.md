@@ -7,11 +7,13 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 ## TO-DO
 
-* Add separating lines between messages.
-
 * Make event text smaller, darken text unless hovered over.
 
-* Fix nickname coloring not working.
+* Fix nickname coloring not working. [This might actually be working; it seems to toggle on and off when switching between themes]
+
+* Change topic bar aesthetic.
+
+* Add nickname reference boxes in messages à la Whisper.
 
 * Tweak highlight message. (Low priority)
 
