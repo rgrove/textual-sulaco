@@ -389,39 +389,54 @@ img {
 }
 
 /* Nickname Colors */
+
+/* Creates an identifying box around nicknames referred */
+/* to in messages. */
+body .inline_nickname {
+    color: #fff;
+    display: inline-block;
+    line-height: 1;
+    padding: 3px 2px;
+    background: #2C3E50;
+    border: 1px solid #34495E;
+    border-radius: 3px;
+    margin: 2px 0;
+}
+
 body .text .sender[type*=myself] { color: #6c71c4; }
 
-body .sender[type*=normal][colornumber='0']  { color: #7cfc00; }
-body .sender[type*=normal][colornumber='1']  { color: #c2ff40; }
-body .sender[type*=normal][colornumber='2']  { color: #87ceeb; }
-body .sender[type*=normal][colornumber='3']  { color: #e1c4ff; }
-body .sender[type*=normal][colornumber='4']  { color: #6495ed; }
-body .sender[type*=normal][colornumber='5']  { color: #ff69b4; }
-body .sender[type*=normal][colornumber='6']  { color: #ffb6c1; }
-body .sender[type*=normal][colornumber='7']  { color: #48d1cc; }
-body .sender[type*=normal][colornumber='8']  { color: #ee82ee; }
-body .sender[type*=normal][colornumber='9']  { color: #f66e72; }
-body .sender[type*=normal][colornumber='10'] { color: #69ff89; }
-body .sender[type*=normal][colornumber='11'] { color: #ffe170; }
-body .sender[type*=normal][colornumber='12'] { color: #95d38f; }
-body .sender[type*=normal][colornumber='13'] { color: #7eb6be; }
-body .sender[type*=normal][colornumber='14'] { color: #f3d8e2; }
-body .sender[type*=normal][colornumber='15'] { color: #f66e72; }
-body .sender[type*=normal][colornumber='16'] { color: #faa4a6; }
-body .sender[type*=normal][colornumber='17'] { color: #ffd4a8; }
-body .sender[type*=normal][colornumber='18'] { color: #ffeba5; }
-body .sender[type*=normal][colornumber='19'] { color: #bae2b6; }
-body .sender[type*=normal][colornumber='20'] { color: #aad0d4; }
-body .sender[type*=normal][colornumber='21'] { color: #a8d0ef; }
-body .sender[type*=normal][colornumber='22'] { color: #98a3ff; }
-body .sender[type*=normal][colornumber='23'] { color: #c09bc3; }
-body .sender[type*=normal][colornumber='24'] { color: #c38074; }
-body .sender[type*=normal][colornumber='25'] { color: #a6e1a4; }
-body .sender[type*=normal][colornumber='26'] { color: #7f99e1; }
-body .sender[type*=normal][colornumber='27'] { color: #5ba2e1; }
-body .sender[type*=normal][colornumber='28'] { color: #e1de7d; }
-body .sender[type*=normal][colornumber='29'] { color: #e199a8; }
-body .sender[type*=normal][colornumber='30'] { color: #b5a0e1; }
+
+body .sender[type*=normal][colornumber='0'], body .inline_nickname[colornumber='0']  { color: #7cfc00; }
+body .sender[type*=normal][colornumber='1'], body .inline_nickname[colornumber='1']  { color: #c2ff40; }
+body .sender[type*=normal][colornumber='2'], body .inline_nickname[colornumber='2']  { color: #87ceeb; }
+body .sender[type*=normal][colornumber='3'], body .inline_nickname[colornumber='3']  { color: #e1c4ff; }
+body .sender[type*=normal][colornumber='4'], body .inline_nickname[colornumber='4']  { color: #6495ed; }
+body .sender[type*=normal][colornumber='5'], body .inline_nickname[colornumber='5']  { color: #ff69b4; }
+body .sender[type*=normal][colornumber='6'], body .inline_nickname[colornumber='6']  { color: #ffb6c1; }
+body .sender[type*=normal][colornumber='7'], body .inline_nickname[colornumber='7']  { color: #48d1cc; }
+body .sender[type*=normal][colornumber='8'], body .inline_nickname[colornumber='8']  { color: #ee82ee; }
+body .sender[type*=normal][colornumber='9'], body .inline_nickname[colornumber='9']  { color: #f66e72; }
+body .sender[type*=normal][colornumber='10'], body .inline_nickname[colornumber='10'] { color: #69ff89; }
+body .sender[type*=normal][colornumber='11'], body .inline_nickname[colornumber='11'] { color: #ffe170; }
+body .sender[type*=normal][colornumber='12'], body .inline_nickname[colornumber='12'] { color: #95d38f; }
+body .sender[type*=normal][colornumber='13'], body .inline_nickname[colornumber='13'] { color: #7eb6be; }
+body .sender[type*=normal][colornumber='14'], body .inline_nickname[colornumber='14'] { color: #f3d8e2; }
+body .sender[type*=normal][colornumber='15'], body .inline_nickname[colornumber='15'] { color: #f66e72; }
+body .sender[type*=normal][colornumber='16'], body .inline_nickname[colornumber='16'] { color: #faa4a6; }
+body .sender[type*=normal][colornumber='17'], body .inline_nickname[colornumber='17'] { color: #ffd4a8; }
+body .sender[type*=normal][colornumber='18'], body .inline_nickname[colornumber='18'] { color: #ffeba5; }
+body .sender[type*=normal][colornumber='19'], body .inline_nickname[colornumber='19'] { color: #bae2b6; }
+body .sender[type*=normal][colornumber='20'], body .inline_nickname[colornumber='20'] { color: #aad0d4; }
+body .sender[type*=normal][colornumber='21'], body .inline_nickname[colornumber='21'] { color: #a8d0ef; }
+body .sender[type*=normal][colornumber='22'], body .inline_nickname[colornumber='22'] { color: #98a3ff; }
+body .sender[type*=normal][colornumber='23'], body .inline_nickname[colornumber='23'] { color: #c09bc3; }
+body .sender[type*=normal][colornumber='24'], body .inline_nickname[colornumber='24'] { color: #c38074; }
+body .sender[type*=normal][colornumber='25'], body .inline_nickname[colornumber='25'] { color: #a6e1a4; }
+body .sender[type*=normal][colornumber='26'], body .inline_nickname[colornumber='26'] { color: #7f99e1; }
+body .sender[type*=normal][colornumber='27'], body .inline_nickname[colornumber='27'] { color: #5ba2e1; }
+body .sender[type*=normal][colornumber='28'], body .inline_nickname[colornumber='28'] { color: #e1de7d; }
+body .sender[type*=normal][colornumber='29'], body .inline_nickname[colornumber='29'] { color: #e199a8; }
+body .sender[type*=normal][colornumber='30'], body .inline_nickname[colornumber='30'] { color: #b5a0e1; }
 
 /* mIRC Color Codes */
 .effect[color-number='0']  { color: #ffffff; }
