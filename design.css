@@ -14,26 +14,29 @@ body {
     word-wrap: break-word;
 }
 
+/* Links */
 a {
     border-bottom: dotted 1px #8cb3ff;
+    /*border-bottom: solid 1px #8cb3ff;*/
     color: #8cb3ff;
     text-decoration: none;
 }
 
 a:hover {
     border: none;
-    /* No idea what this does */
+    /* Changes the dotted underline on links to */
+    /* solid upon hovering. */
     border-bottom: solid 1px #8cb3ff;
 }
 
 /* Coloring for URLs */
 a:link {
-  /* This only affects URLs in Textual: */
-  color: #268bd2;
-  /* Don't let long links break the layout */
-  display: inline-block;
-  vertical-align: top;
-  max-width: 60em;
+    /* This only affects URLs in Textual: */
+    color: #268bd2;
+    /* Don't let long links break the layout */
+    display: inline-block;
+    vertical-align: top;
+    max-width: 60em;
 }
 
 #body_home {
@@ -55,7 +58,6 @@ body[type*=server] #body_home {
     padding: 4px 8px 3px;
     /* Eureka! This adds a subtle line between all chat messages! */
     border-top: 1px solid #073642;
-
 }
 
 .sender {
@@ -66,7 +68,6 @@ body[type*=server] #body_home {
 .message {
     max-width: 90%;
     width: 100%;
-    /*border-top: 1px solid #073642;*/
 }
 
 /* Background of  */
@@ -145,43 +146,81 @@ body[type*=channel] .event .message {
 
 /* Makes the mode messages smaller font */
 .line[type*=mode] .message {
-    color: #ff0000; /* This line has NO EFFECT */
+    color: #444444 !important; /* This line has NO EFFECT */
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
+
+    /*padding: 0 10px;
+    position: relative;
+    /* Un-do first event's bottom padding. */
+    /*top: -4px;*/
 }
+
+/* Brightens the color of mode messages upon hovering */
+.line[type*=mode]:hover .message {
+    color: #839496 !important;
+}
+
+
 
 /* Convert timestamp background to black to match */
 /* mode messsage. */
 .line[type*=mode] .time {
+    color: #444444 !important;
     background-color: #000000;
-    border-top: 1px solid #073642; /* Does nothing :( */
+    /*border-top: 1px solid #073642; /* Does nothing :( */*/
+}
+
+/* Brighten the timestamp text when hovering. (For MODE) */
+.line[type*=mode]:hover .time {
+    color: #839496 !important;
 }
 
 /* Makes the topic messages smaller font */
 .line[type*=topic] .message {
-    color: #ff0000; /* This line has NO EFFECT */
+    color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
 }
 
+/* Brighten the topic text when hovering over. */
+.line[type*=topic]:hover .message {
+    color: #839496 !important;
+}
+
 .line[type*=topic] .time {
+    color: #444444 !important;
     background-color: #000000;
     font-size: 0.8em;
+}
+
+/* Brighten the topic timestamp text when hovering over. */
+.line[type*=topic]:hover .time {
+    color: #839496 !important;
 }
 
 /* Makes the join messages smaller font */
 .line[type*=join] .message {
-    color: #ff0000; /* This line has NO EFFECT */
+    color: #444444 !important; /* This line has NO EFFECT */
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
 }
 
+.line[type*=join]:hover .message {
+    color: #839496 !important;
+}
+
 .line[type*=join] .time {
     background-color: #000000;
+    color: #444444;
     font-size: 0.8em;
+}
+
+.line[type*=join]:hover .time {
+    color: #839496 !important;
 }
 
 /* END OF ADDITIONS FOR EVENTS */
@@ -204,8 +243,8 @@ body[type*=server] .event .message:before {
 /* next to the event messages where a nick would be. */
 .event .sender {
     background: inherit;
-    border-right: 1px solid #FF0000 !important;
-    border-top: 1px solid #eee8d5;
+    /*border-right: 1px solid #FF0000 !important;*/
+    /*border-top: 1px solid #eee8d5;*/
     /*border-bottom: 1px solid #eee8d5; // Added*/
 }
 
@@ -337,6 +376,9 @@ img {
     margin: 15px 15px 12px 0;
     max-height: 40%;
     max-width: 95%;
+    /* Golden ratio ~ 485/300 */
+    /*max-height: 300px;
+    max-width: 485px;*/
 }
 
 /* Nickname Colors */
