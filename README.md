@@ -29,11 +29,8 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 * De-emphasizes what you don’t.
 
-* Doesn't clobber any of your preferences. Wanna use a light UI with Sulaco?
-  Fine. Wanna change how nicknames or timestamps are formatted? Cool.
-
-* Looks great with a wide variety of fonts. My favorite is Myriad Pro Light
-  16pt, which is just gorgeous on a Retina display.
+* Doesn't overwrtie any of your preferences. Wanna use a light UI with Sulaco?
+  You can. Wanna change how nicknames or timestamps are formatted? Great! The theme is unobtrusive.
 
 * Coalesces multiple consecutive messages from the same sender rather than
   displaying the same nickname over and over.
