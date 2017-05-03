@@ -146,6 +146,7 @@ body[type*=channel] .event .message {
 
 /* Makes the mode messages smaller font */
 .line[type*=mode] .message {
+    font-style: italic;
     color: #444444 !important; /* This line has NO EFFECT */
     background: #000000;
     font-size: 0.8em;
@@ -179,6 +180,7 @@ body[type*=channel] .event .message {
 
 /* Makes the topic messages smaller font */
 .line[type*=topic] .message {
+    font-style: italic;
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
@@ -203,6 +205,7 @@ body[type*=channel] .event .message {
 
 /* Makes the join messages smaller font */
 .line[type*=join] .message {
+    font-style: italic;
     color: #444444 !important; /* This line has NO EFFECT */
     background: #000000;
     font-size: 0.8em;
