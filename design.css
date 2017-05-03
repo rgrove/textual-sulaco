@@ -228,9 +228,7 @@ body[type*=channel] .event .message {
 
 .line[type*=part],
 .line[type*=kill],
-.line[type*=quit]
-.message {
-    font-style: italic;
+.line[type*=quit] .message {
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
@@ -251,7 +249,7 @@ body[type*=channel] .event .message {
     font-size: 0.8em;
 }
 
-.line[type*=join]:hover,
+.line[type*=part]:hover,
 .line[type*=kill]:hover,
 .line[type*=quit]:hover .time {
     color: #839496 !important;
