@@ -50,14 +50,23 @@ body[type*=server] #body_home {
 }
 
 .message,
-.sender,
+/*.sender,*/
 .time {
     padding: 4px 8px 3px;
+    /* Eureka! This adds a subtle line between all chat messages! */
+    border-top: 1px solid #073642;
+
+}
+
+.sender {
+    padding: 4px 8px 3px;
+    border-right: 1px solid #073642;
 }
 
 .message {
     max-width: 90%;
     width: 100%;
+    /*border-top: 1px solid #073642;*/
 }
 
 /* Background of  */
@@ -68,7 +77,10 @@ body[type*=server] #body_home {
 
 /* Background of field containing own nickname */
 .sender[type*=self] {
+    /*min-width: 105px;*/
+    /*max-width: 220px;*/
     background: #073642;
+    border-right: 1px solid #073642;
 }
 
 .sender {
@@ -126,37 +138,75 @@ body[type*=channel] .event .message {
     color: #ff0000;
     background: #000000;
     font-size: 0.8em;
+    line-height: 1.2rem;
 }
+
+/* BEGINNING OF ADDITIONS FOR EVENTS */
 
 /* Makes the mode messages smaller font */
 .line[type*=mode] .message {
-    color: #ff0000;
+    color: #ff0000; /* This line has NO EFFECT */
     background: #000000;
     font-size: 0.8em;
+    line-height: 1.2rem;
+}
+
+/* Convert timestamp background to black to match */
+/* mode messsage. */
+.line[type*=mode] .time {
+    background-color: #000000;
+    border-top: 1px solid #073642; /* Does nothing :( */
 }
 
 /* Makes the topic messages smaller font */
 .line[type*=topic] .message {
-    color: #ff0000;
+    color: #ff0000; /* This line has NO EFFECT */
     background: #000000;
     font-size: 0.8em;
+    line-height: 1.2rem;
 }
+
+.line[type*=topic] .time {
+    background-color: #000000;
+    font-size: 0.8em;
+}
+
+/* Makes the join messages smaller font */
+.line[type*=join] .message {
+    color: #ff0000; /* This line has NO EFFECT */
+    background: #000000;
+    font-size: 0.8em;
+    line-height: 1.2rem;
+}
+
+.line[type*=join] .time {
+    background-color: #000000;
+    font-size: 0.8em;
+}
+
+/* END OF ADDITIONS FOR EVENTS */
 
 body[type*=server] .event .message {
     color: #999;
     font-size: inherit;
     padding-left: 1em;
     padding-right: 2em;
+    border-bottom: 1px solid #eee8d5; // Added, no effect
+    border-right: 1px solid #DEDACD;
 }
 
 body[type*=server] .event .message:before {
     content: '';
+    border-bottom: 1px solid #eee8d5; // Added
 }
 
 /* This controls the background color of the area */
 /* next to the event messages where a nick would be. */
 .event .sender {
     background: inherit;
+    border-right: 1px solid #FF0000 !important;
+    border-top: 1px solid #eee8d5;
+    /*border-bottom: 1px solid #eee8d5; // Added*/
 }
 
 /****** HOVER *****/
