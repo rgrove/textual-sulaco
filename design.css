@@ -230,8 +230,15 @@ body[type*=server] .event .message {
     font-size: inherit;
     padding-left: 1em;
     padding-right: 2em;
-    border-bottom: 1px solid #eee8d5; // Added, no effect
-    border-right: 1px solid #DEDACD;
+    border-bottom: 1px solid #073642;
+}
+
+body[type*=server] .time {
+    color: #999;
+    font-size: inherit;
+    padding-left: 1em;
+    padding-right: 2em;
+    border-bottom: 1px solid #073642;
 }
 
 body[type*=server] .event .message:before {
