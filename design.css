@@ -78,8 +78,8 @@ body[type*=server] #body_home {
 
 /* Background of field containing own nickname */
 .sender[type*=self] {
-    /*min-width: 105px;*/
-    /*max-width: 220px;*/
+    /*min-width: 105px;
+    max-width: 220px;*/
     background: #073642;
     border-right: 1px solid #073642;
 }
@@ -206,7 +206,7 @@ body[type*=channel] .event .message {
 /* Makes the join messages smaller font */
 .line[type*=join] .message {
     font-style: italic;
-    color: #444444 !important; /* This line has NO EFFECT */
+    color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
@@ -229,7 +229,29 @@ body[type*=channel] .event .message {
 /* End join */
 /* Part */
 
-.line[type*=part],
+.line[type*=part] .message {
+    font-style: italic;
+    color: #444444 !important; /* This line has NO EFFECT */
+    background: #000000;
+    font-size: 0.8em;
+    line-height: 1.2rem;
+}
+
+.line[type*=part]:hover .message {
+    color: #839496 !important;
+}
+
+.line[type*=part] .time {
+    background-color: #000000;
+    color: #444444;
+    font-size: 0.8em;
+}
+
+.line[type*=part]:hover .time {
+    color: #839496 !important;
+}
+
+/*.line[type*=part],*/
 .line[type*=kill],
 .line[type*=quit] .message {
     color: #444444 !important;
@@ -238,13 +260,13 @@ body[type*=channel] .event .message {
     line-height: 1.2rem;
 }
 
-.line[type*=part]:hover,
+/*.line[type*=part]:hover,*/
 .line[type*=kill]:hover,
 .line[type*=quit]:hover .message {
     color: #839496 !important;
 }
 
-.line[type*=part],
+/*.line[type*=part],*/
 .line[type*=kill],
 .line[type*=quit] .time {
     background-color: #000000;
@@ -252,7 +274,7 @@ body[type*=channel] .event .message {
     font-size: 0.8em;
 }
 
-.line[type*=part]:hover,
+/*.line[type*=part]:hover,*/
 .line[type*=kill]:hover,
 .line[type*=quit]:hover .time {
     color: #839496 !important;
