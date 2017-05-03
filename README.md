@@ -1,7 +1,7 @@
 Succinct Textual Style
 ======================
 
-Succinct is a solarized dark theme for the Textual IRC client based on the [Colloquy theme](https://github.com/TempSpas/succinct-for-colloquy). It's currently built off of the Sulaco dark theme. The theme is still in beta, as there are many tweaks I do not know how to do in Textual.
+Succinct is a solarized dark theme for the Textual IRC client based on the [Colloquy theme](https://github.com/TempSpas/succinct-for-colloquy). It's currently built off of the Sulaco dark theme. The theme is still in beta.
 
 <!-- ![Screenshot](http://pie.gd/i/141030x3xzz.png) -->
 
@@ -12,6 +12,8 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 * Change topic bar aesthetic.
 
 * Add nickname reference boxes in messages à la Whisper.
+
+* Fix action message formatting.
 
 * Make event messages merge together as they come in. (Low priority)
 
