@@ -260,6 +260,7 @@ body[type*=channel] .event .message {
 
 body[type*=server] .event .message {
     color: #999;
+    background-color: #073642;
     font-size: inherit;
     padding-left: 1em;
     padding-right: 2em;
@@ -268,6 +269,7 @@ body[type*=server] .event .message {
 
 body[type*=server] .time {
     color: #999;
+    background-color: #073642;
     font-size: inherit;
     padding-left: 1em;
     padding-right: 2em;
