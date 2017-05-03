@@ -223,6 +223,41 @@ body[type*=channel] .event .message {
     color: #839496 !important;
 }
 
+/* End join */
+/* Part */
+
+.line[type*=part],
+.line[type*=kill],
+.line[type*=quit]
+.message {
+    font-style: italic;
+    color: #444444 !important;
+    background: #000000;
+    font-size: 0.8em;
+    line-height: 1.2rem;
+}
+
+.line[type*=part]:hover,
+.line[type*=kill]:hover,
+.line[type*=quit]:hover .message {
+    color: #839496 !important;
+}
+
+.line[type*=part],
+.line[type*=kill],
+.line[type*=quit] .time {
+    background-color: #000000;
+    color: #444444;
+    font-size: 0.8em;
+}
+
+.line[type*=join]:hover,
+.line[type*=kill]:hover,
+.line[type*=quit]:hover .time {
+    color: #839496 !important;
+}
+
+
 /* END OF ADDITIONS FOR EVENTS */
 
 body[type*=server] .event .message {
