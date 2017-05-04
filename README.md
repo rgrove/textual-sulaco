@@ -9,7 +9,7 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 * Change topic bar aesthetic.
 
-* Add nickname reference boxes in messages à la Whisper. [Almost complete, just need to ensure that reference to own nickname match color]
+* Add nickname reference boxes in messages à la Whisper. [Essentially complete. I would like to ensure that references to own nickname match the color of the nick in the sender field, but not even Whisper does this, so I'm not sure if it's feasible.]
 
 * Tweak highlight message.
 
@@ -29,7 +29,7 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 * De-emphasizes what you don’t.
 
-* Doesn't overwrtie any of your preferences. Wanna use a light UI with Sulaco?
+* Doesn't overwrite any of your preferences. Wanna use a light UI with Sulaco?
   You can. Wanna change how nicknames or timestamps are formatted? Great! The theme is unobtrusive.
 
 * Coalesces multiple consecutive messages from the same sender rather than
