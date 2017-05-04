@@ -84,6 +84,7 @@ body[type*=server] #body_home {
     max-width: 220px;*/
     background: #073642;
     border-right: 1px solid #073642;
+    /*border-bottom: 1px solid #ff0000;*/
 }
 
 .sender {
@@ -475,10 +476,11 @@ body div#loading_screen {
     background: #333;
     border-bottom: 1px solid #404040;
     /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.8);*/
-    color: #efefef;
+    /*color: #efefef;*/
+    color: #93a1a1;
     font-weight: 600;
     left: 0;
-    opacity: 0.9 !important; /* Overrides JS opacity. */
+    opacity: 1.0 !important;  /* Overrides JS opacity. */ 
     padding: 4px 12px 2px;
     position: fixed;
     right: 0;
@@ -487,11 +489,14 @@ body div#loading_screen {
     z-index: 2;
 }
 
+/* Links in topic bar */
 #topic_bar a,
 #topic_bar span.channel {
-    color: #f5f5f5;
-    border-color: #f5f5f5;
-    text-shadow: 1px 1px rgba(10, 10, 10, 0.7);
+    /*color: #f5f5f5;*/
+    color: #268bd2;
+    border-color: #268bd2;
+    /*border-color: #f5f5f5;*/
+    /*text-shadow: 1px 1px rgba(10, 10, 10, 0.7);*/
 }
 
 /* Images */
