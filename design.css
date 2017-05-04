@@ -17,17 +17,18 @@ body {
 
 /* Links */
 a {
-    border-bottom: dotted 1px #8cb3ff;
+    /*border-bottom: dotted 1px #8cb3ff;*/
     /*border-bottom: solid 1px #8cb3ff;*/
     color: #8cb3ff;
-    text-decoration: none;
+    /*text-decoration: none;*/
+    background-color: transparent;
 }
 
 a:hover {
-    border: none;
+    /*border: none;*/
     /* Changes the dotted underline on links to */
     /* solid upon hovering. */
-    border-bottom: solid 1px #8cb3ff;
+    /*border-bottom: solid 1px #8cb3ff;*/
 }
 
 /* Coloring for URLs */
