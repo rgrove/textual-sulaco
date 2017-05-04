@@ -531,7 +531,6 @@ body .inline_nickname {
 
 body .text .sender[type*=myself] { color: #6c71c4; }
 
-
 body .sender[type*=normal][colornumber='0'], body .inline_nickname[colornumber='0']  { color: #7cfc00; }
 body .sender[type*=normal][colornumber='1'], body .inline_nickname[colornumber='1']  { color: #c2ff40; }
 body .sender[type*=normal][colornumber='2'], body .inline_nickname[colornumber='2']  { color: #87ceeb; }
