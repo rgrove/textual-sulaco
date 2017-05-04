@@ -14,6 +14,7 @@ body {
     word-wrap: break-word;
 }
 
+
 /* Links */
 a {
     border-bottom: dotted 1px #8cb3ff;
@@ -46,6 +47,7 @@ a:link {
     position: absolute;
     right: 0;
     top: 0;
+    border-bottom: 1px solid #073642;
 }
 
 body[type*=server] #body_home {
@@ -116,12 +118,29 @@ body[type*=server] .sender { display: none; }
 /* /me */
 .line[type*=action] .message,
 .line[type*=action] .sender {
-    background: none;
+    background: #002b36;
     font-style: italic;
 }
 
+/* Match own nick field on actions with regular */
+/* lighter color of own nick field. */
+.line[nickname-type*=myself], 
 .line[type*=action] .sender {
-    padding-right: 2px;
+    background: #073642;
+}
+
+/* Fix action formatting. */
+.line[type*=action] .sender {
+    padding: 4px 8px 3px;
+    /*border-right: none;*/ /* Experiment with this. */
+    /* Will need to place a border on the bottom of own */
+    /* sender area. */
+}
+
+/* Placed before the user's name when performing */
+/* a /me action. */
+.line[type*=action] .sender:before {
+    content: '• ';
 }
 
 body[type*=channel] .event .message {
@@ -133,6 +152,49 @@ body[type*=channel] .event .message {
 .event .message:before {
     content: '» ';
 }
+
+/* Working on Events */
+line .event {
+    font-style: italic;
+    color: #444444 !important;
+    background: #000000;
+    font-size: 0.8em !important;
+    line-height: 1.2rem;
+}
+
+line:hover .event {
+    color: #839496 !important;
+}
+
+/* Shifts the event messages slightly to the right */
+/*.event > * {
+  padding: 4px 10px;
+}*/
+
+.event + .event > * {
+    padding: 0 8px;
+    position: relative;
+    /* Un-do first event's bottom padding. */
+    top: -4px;
+    border-top: 1px solid transparent;
+}
+
+/*Test*/
+.message + .event > * {
+    border-top: 1px solid transparent;
+}
+
+/*.event + .message {
+    padding: 0 8px;
+    position: relative;
+    /* Un-do first event's bottom padding. */
+    top: -4px;
+    /*border-top: 1px solid #073642;
+}*/
+
+
+/* End working on events */
+
 
 /* This makes the quit message smaller */
 .line[type*=quit] .message {
@@ -147,7 +209,7 @@ body[type*=channel] .event .message {
 /* Makes the mode messages smaller font */
 .line[type*=mode] .message {
     font-style: italic;
-    color: #444444 !important; /* This line has NO EFFECT */
+    color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
@@ -163,14 +225,12 @@ body[type*=channel] .event .message {
     color: #839496 !important;
 }
 
-
-
 /* Convert timestamp background to black to match */
 /* mode messsage. */
 .line[type*=mode] .time {
+    font-style: normal;
     color: #444444 !important;
     background-color: #000000;
-    /*border-top: 1px solid #073642; /* Does nothing :( */*/
 }
 
 /* Brighten the timestamp text when hovering. (For MODE) */
@@ -193,6 +253,7 @@ body[type*=channel] .event .message {
 }
 
 .line[type*=topic] .time {
+    font-style: normal;
     color: #444444 !important;
     background-color: #000000;
     font-size: 0.8em;
@@ -217,6 +278,7 @@ body[type*=channel] .event .message {
 }
 
 .line[type*=join] .time {
+    font-style: normal;
     background-color: #000000;
     color: #444444;
     font-size: 0.8em;
@@ -242,6 +304,7 @@ body[type*=channel] .event .message {
 }
 
 .line[type*=part] .time {
+    font-style: normal;
     background-color: #000000;
     color: #444444;
     font-size: 0.8em;
@@ -270,6 +333,7 @@ body[type*=channel] .event .message {
 /*.line[type*=part],*/
 /*.line[type*=kill],*/
 .line[type*=quit] .time {
+    font-style: normal;
     background-color: #000000;
     color: #444444;
     font-size: 0.8em;
@@ -432,6 +496,7 @@ body div#loading_screen {
 
 /* Images */
 a img {
+    display: block;
     border: 0;
 }
 
