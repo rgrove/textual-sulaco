@@ -347,6 +347,55 @@ line:hover .event {
     color: #839496 !important;
 }
 
+/******** Kick **********/
+.line[type*=kick] .message {
+    font-style: italic;
+    color: #444444 !important;
+    background: #000000;
+    font-size: 0.8em;
+    line-height: 1.2rem;
+}
+
+.line[type*=kick]:hover .message {
+    color: #839496 !important;
+}
+
+.line[type*=kick] .time {
+    font-style: normal;
+    background-color: #000000;
+    color: #444444;
+    font-size: 0.8em;
+}
+
+.line[type*=kick]:hover .time {
+    color: #839496 !important;
+}
+/******** End Kick **********/
+
+/******** Kill **********/
+.line[type*=kill] .message {
+    font-style: italic;
+    color: #444444 !important;
+    background: #000000;
+    font-size: 0.8em;
+    line-height: 1.2rem;
+}
+
+.line[type*=kill]:hover .message {
+    color: #839496 !important;
+}
+
+.line[type*=kill] .time {
+    font-style: normal;
+    background-color: #000000;
+    color: #444444;
+    font-size: 0.8em;
+}
+
+.line[type*=kill]:hover .time {
+    color: #839496 !important;
+}
+/******** End Kill **********/
 
 /* END OF ADDITIONS FOR EVENTS */
 
