@@ -145,9 +145,26 @@ body[type*=server] .sender { display: none; }
     content: '• ';
 }
 
+/* Disconnect and rename messages */
 body[type*=channel] .event .message {
-    color: #666;
+    font-style: italic;
+    color: #444444 !important;
+    background: #000000;
+    font-size: 0.8em !important;
+    line-height: 1.2rem;
 }
+
+body[type*=channel] .event .time {
+    /*font-style: italic;*/
+    color: #444444 !important;
+    background: #000000;
+    font-size: 0.8em !important;
+    line-height: 1.2rem;
+}
+
+/*body[type*=channel]:hover .event .message {
+    color: #ff0000 !important;
+}*/
 
 /* Affects only the before message, in this */
 /* case just the arrows before the message occurs. */
