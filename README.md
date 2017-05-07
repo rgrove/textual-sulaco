@@ -13,11 +13,13 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 * Tweak highlight message.
 
+* Change notice colors.
+
 * Make changes to inline images. Shouldn't trigger with videos, should also replace the actual link.
 
-* Change colors on /whois messages.
+* Change colors on /whois messages. [Almost done]
 
-* Make event messages merge together as they come in. (Low priority)
+* Make event messages merge together as they come in. [Almost done]
 
 * Change nickname colors. (Low priority)
 
