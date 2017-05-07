@@ -24,6 +24,8 @@ a {
     background-color: transparent;
 }
 
+/* How the appearance of links changes when */
+/* hovered over. */
 a:hover {
     /*border: none;*/
     /* Changes the dotted underline on links to */
@@ -153,8 +155,8 @@ body[type*=server] .sender { display: none; }
     content: '• ';
 }
 
-/* Disconnect and rename messages */
-body[type*=channel] .event .message {
+/* Any and all channel events */
+/*body[type*=channel]*/ .event .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
@@ -162,15 +164,24 @@ body[type*=channel] .event .message {
     line-height: 1.2rem;
 }
 
-body[type*=channel] .event .time {
-    /*font-style: italic;*/
+/*body[type*=channel]*/ .event .time {
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em !important;
     line-height: 1.2rem;
 }
 
-/*body[type*=channel]:hover .event .message {
+.event:hover .message, .event:hover .time {
+    color: #839496 !important;
+    /*839496*/
+}
+
+/* THESE WORK!!! BUT THEY NEED TO WORK AT THE SAME TIME */
+/*.event:hover .message {
+    color: #ff0000 !important;
+}
+
+.event:hover .time:hover {
     color: #ff0000 !important;
 }*/
 
@@ -181,7 +192,7 @@ body[type*=channel] .event .time {
 }
 
 /* Working on Events */
-line .event {
+/*.line .event {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
@@ -189,25 +200,34 @@ line .event {
     line-height: 1.2rem;
 }
 
-line:hover .event {
+.line:hover .event {
     color: #839496 !important;
-}
-
-/* Shifts the event messages slightly to the right */
-/*.event > * {
-  padding: 4px 10px;
 }*/
 
+/* Shifts the event messages slightly to the right */
+.event > * {
+  padding: 2 8px;
+}
+
+/* These are lifted from the Colloquy original */
+/* in order to compress channel events. */
 .event + .event > * {
+    padding: 2 8px;
+    position: relative;
+    /* Un-do first event's bottom padding. */
+    /*top: -4px;*/
+    border-top: 1px solid transparent;
+}
+
+.message + .event > * {
+    border-top: 1px solid transparent;
+}
+
+.event + .message > * {
     padding: 0 8px;
     position: relative;
     /* Un-do first event's bottom padding. */
     top: -4px;
-    border-top: 1px solid transparent;
-}
-
-/*Test*/
-.message + .event > * {
     border-top: 1px solid transparent;
 }
 
@@ -220,62 +240,55 @@ line:hover .event {
 }*/
 
 
-/* End working on events */
-
 
 /* This makes the quit message smaller */
-.line[type*=quit] .message {
+/*.line[type*=quit] .message {
     color: #ff0000;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
-}
+}*/
 
 /* BEGINNING OF ADDITIONS FOR EVENTS */
 
 /* Makes the mode messages smaller font */
-.line[type*=mode] .message {
+/*.line[type*=mode] .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
-
-    /*padding: 0 10px;
-    position: relative;
-    /* Un-do first event's bottom padding. */
-    /*top: -4px;*/
-}
+}*/
 
 /* Brightens the color of mode messages upon hovering */
-.line[type*=mode]:hover .message {
+/*.line[type*=mode]:hover .message {
     color: #839496 !important;
-}
+}*/
 
 /* Convert timestamp background to black to match */
 /* mode messsage. */
-.line[type*=mode] .time {
+/*.line[type*=mode] .time {
     font-style: normal;
     color: #444444 !important;
     background-color: #000000;
-}
+}*/
 
 /* Brighten the timestamp text when hovering. (For MODE) */
-.line[type*=mode]:hover .time {
+/*.line[type*=mode]:hover .time {
     color: #839496 !important;
-}
+}*/
 
 /* Makes the topic messages smaller font */
-.line[type*=topic] .message {
+/*.line[type*=topic] .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
-}
+}*/
 
 /* Brighten the topic text when hovering over. */
-.line[type*=topic]:hover .message {
+/*.line[type*=topic]:hover .message {
     color: #839496 !important;
 }
 
@@ -284,23 +297,23 @@ line:hover .event {
     color: #444444 !important;
     background-color: #000000;
     font-size: 0.8em;
-}
+}*/
 
 /* Brighten the topic timestamp text when hovering over. */
-.line[type*=topic]:hover .time {
+/*.line[type*=topic]:hover .time {
     color: #839496 !important;
-}
+}*/
 
 /* Makes the join messages smaller font */
-.line[type*=join] .message {
+/*.line[type*=join] .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
-}
+}*/
 
-.line[type*=join]:hover .message {
+/*.line[type*=join]:hover .message {
     color: #839496 !important;
 }
 
@@ -313,14 +326,14 @@ line:hover .event {
 
 .line[type*=join]:hover .time {
     color: #839496 !important;
-}
+}*/
 
 /* End join */
 /* Part */
 
-.line[type*=part] .message {
+/*.line[type*=part] .message {
     font-style: italic;
-    color: #444444 !important; /* This line has NO EFFECT */
+    color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
@@ -339,41 +352,41 @@ line:hover .event {
 
 .line[type*=part]:hover .time {
     color: #839496 !important;
-}
+}*/
 
 /*.line[type*=part],*/
 /*.line[type*=kill],*/
-.line[type*=quit] .message {
+/*.line[type*=quit] .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em;
     line-height: 1.2rem;
-}
+}*/
 
 /*.line[type*=part]:hover,*/
 /*.line[type*=kill]:hover,*/
-.line[type*=quit]:hover .message {
+/*.line[type*=quit]:hover .message {
     color: #839496 !important;
-}
+}*/
 
 /*.line[type*=part],*/
 /*.line[type*=kill],*/
-.line[type*=quit] .time {
+/*.line[type*=quit] .time {
     font-style: normal;
     background-color: #000000;
     color: #444444;
     font-size: 0.8em;
-}
+}*/
 
 /*.line[type*=part]:hover,*/
 /*.line[type*=kill]:hover,*/
-.line[type*=quit]:hover .time {
+/*.line[type*=quit]:hover .time {
     color: #839496 !important;
-}
+}*/
 
 /******** Kick **********/
-.line[type*=kick] .message {
+/*.line[type*=kick] .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
@@ -394,11 +407,11 @@ line:hover .event {
 
 .line[type*=kick]:hover .time {
     color: #839496 !important;
-}
+}*/
 /******** End Kick **********/
 
 /******** Kill **********/
-.line[type*=kill] .message {
+/*.line[type*=kill] .message {
     font-style: italic;
     color: #444444 !important;
     background: #000000;
@@ -419,7 +432,7 @@ line:hover .event {
 
 .line[type*=kill]:hover .time {
     color: #839496 !important;
-}
+}*/
 /******** End Kill **********/
 
 /* END OF ADDITIONS FOR EVENTS */
@@ -481,7 +494,7 @@ body[type*=server] .line:hover .time {
 .text[highlight*=true],
 .text[highlight*=true] .time {
     font-weight: bold;
-    color: #2aa198;
+    color: #2aa198 !important;
     /*color: #ff0000;*/
 }
 
@@ -522,7 +535,8 @@ body[type*=server] .line:hover .time {
 
 /* Mark made with Command-L. */
 #mark {
-    border-bottom: 1px dotted #9f9f9f;
+    /*border-bottom: 1px dotted #9f9f9f;*/
+    border-bottom: 1px dotted #b58900;
     margin: 1px 0;
     -webkit-transition: 0.2s linear;
 }
@@ -607,6 +621,19 @@ body .inline_nickname {
     border: 1px solid #34495E;
     border-radius: 3px;
     margin: 2px 0;
+}
+
+body .inline_nickname:hover {
+    text-decoration: underline;
+    cursor: hand;
+    /*color: #fff;
+    display: inline-block;
+    line-height: 1;
+    padding: 3px 2px;
+    background: #2C3E50;
+    border: 1px solid #34495E;
+    border-radius: 3px;
+    margin: 2px 0;*/
 }
 
 body .text .sender[type*=myself] { color: #6c71c4; }
