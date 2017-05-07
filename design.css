@@ -41,6 +41,14 @@ a:link {
     max-width: 60em;
 }
 
+/* Make channel links clickable. */
+/* (Unlike regular links, you have to double click. */
+span.channel {
+    color: #268bd2;
+    text-decoration: underline;
+    cursor: hand;
+}
+
 #body_home {
     bottom: 0;
     left: 0;
