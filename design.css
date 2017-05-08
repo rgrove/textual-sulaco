@@ -83,6 +83,10 @@ body[type*=server] #body_home {
     width: 100%;
 }
 
+.time {
+    color: #839496 !important;
+}
+
 /* Background of  */
 .sender,
 .time {
@@ -486,6 +490,10 @@ body[type*=server] .line:hover .time {
     background-color: #444;
     color: #fff;
 }*/
+
+
+
+
 
 /****** HOVER *****/
 
