@@ -584,7 +584,23 @@ body div#loading_screen {
     text-align: center;
     top: 0;
     z-index: 2;
+
+    /* Uncomment this and lines 595-598 for */
+    /* a topic bar that only shows the whole */
+    /* topic when hovering. */
+    /*overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;*/
 }
+
+/* Uncomment this and the lines in #topic_bar */
+/* for a topic bar that only shows the whole */
+/* topic when hovering. */
+/*#topic_bar:hover {
+    overflow: visible;
+    white-space: normal;
+}*/
+
 
 /* Links in topic bar */
 #topic_bar a,
