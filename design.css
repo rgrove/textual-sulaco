@@ -44,7 +44,7 @@ a:link {
     /* Don't let long links break the layout */
     display: inline-block;
     vertical-align: top;
-    max-width: 50em;
+    max-width: 100%;
     /*max-width: 60em;*/
 }
 
