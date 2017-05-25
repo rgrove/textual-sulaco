@@ -48,7 +48,7 @@ a:link {
     /*max-width: 60em;*/
 }
 
-/* Make channel links clickable. */
+/* Make channel links appear clickable. */
 /* (Unlike regular links, you have to double click. */
 span.channel {
     color: #268bd2;
@@ -87,6 +87,10 @@ body[type*=server] #body_home {
     /*max-width: 90%;*/
     max-width: 75%;
     width: 100%;
+}
+
+body[type*=server] .message {
+    max-width: 90%;
 }
 
 .time {
