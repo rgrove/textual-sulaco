@@ -22,6 +22,10 @@ a {
     color: #8cb3ff;
     /*text-decoration: none;*/
     background-color: transparent;
+
+    /*display: inline-block;
+    vertical-align: top;
+    max-width: 60em;*/
 }
 
 /* How the appearance of links changes when */
@@ -40,7 +44,8 @@ a:link {
     /* Don't let long links break the layout */
     display: inline-block;
     vertical-align: top;
-    max-width: 60em;
+    max-width: 50em;
+    /*max-width: 60em;*/
 }
 
 /* Make channel links clickable. */
@@ -79,7 +84,8 @@ body[type*=server] #body_home {
 }
 
 .message {
-    max-width: 90%;
+    /*max-width: 90%;*/
+    max-width: 75%;
     width: 100%;
 }
 
@@ -193,6 +199,13 @@ body[type*=server] .sender { display: none; }
 /* case just the arrows before the message occurs. */
 .event .message:before {
     content: '» ';
+}
+
+// Ineffective, keep working
+.line[type*=notice] {
+/*div[type*=notice] {*/
+/*body div.line[type*=notice] {*/
+    color: #ff0000 !important;
 }
 
 /* Working on Events */
@@ -473,30 +486,6 @@ body[type*=server] .event .message:before {
     /*border-bottom: 1px solid #eee8d5; // Added*/
 }
 
-/****** HOVER *****/
-
-/*.text:hover,
-body[type*=server] .line:hover {
-    outline: 1px solid #666;
-}*/
-
-/* Changes the color of a message that is being hovered */
-/* over. */
-/*.text:hover .message,
-.text:hover .sender,
-.text:hover .time,
-body[type*=server] .line:hover .message,
-body[type*=server] .line:hover .time {
-    background-color: #444;
-    color: #fff;
-}*/
-
-
-
-
-
-/****** HOVER *****/
-
 /* This controls the text color of the entire highlighted */
 /* message, as well as the timestamp text color. */
 .text[highlight*=true],
@@ -534,16 +523,15 @@ body[type*=server] .line:hover .time {
 }
 
 .znc-playback-end {
-    border-bottom: 1px dashed #9f9f9f;
+    border-bottom: 1px dashed #b58900;
 }
 
 .znc-playback-start {
-    border-top: 1px dashed #9f9f9f;
+    border-top: 1px dashed #b58900;
 }
 
 /* Mark made with Command-L. */
 #mark {
-    /*border-bottom: 1px dotted #9f9f9f;*/
     border-bottom: 1px dotted #b58900;
     margin: 1px 0;
     -webkit-transition: 0.2s linear;
