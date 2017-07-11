@@ -106,7 +106,7 @@ Textual.newMessagePostedToView = function (lineNum) {
 };
 
 Textual.viewFinishedLoading = function () {
-    Textual.fadeInLoadingScreen(1.00, 0.95);
+    Textual.fadeOutLoadingScreen(1.00, 0.95);
 
     setTimeout(function () {
         Textual.scrollToBottomOfView();
