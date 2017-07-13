@@ -11,17 +11,15 @@ Succinct is a solarized dark theme for the Textual IRC client based on the [Coll
 
 * Add nickname reference boxes in messages à la Whisper. [Essentially complete. I would like to ensure that references to own nickname match the color of the nick in the sender field, but not even Whisper does this, so I'm not sure if it's feasible.]
 
-* Tweak highlight message.
+* Tweak highlight message color.
 
 * Change notice colors.
 
-* Make changes to inline images. Shouldn't trigger with videos, should also replace the actual link.
+* Change colors on /whois messages.
 
-* Change colors on /whois messages. [Almost done]
+* Make changes to inline images. Should have a more uniform alignment pattern.
 
-* Make event messages merge together as they come in. [Almost done]
-
-* Change nickname colors. (Low priority)
+* Make event messages merge together as they come in. [Essentially done, would like it to be just a bit tighter though.]
 
 ## Features
 
