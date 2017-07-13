@@ -79,7 +79,7 @@ body[type*=server] #body_home {
 }
 
 .sender {
-    padding: 4px 8px 3px;
+    padding: 5px 8px 3px;
     border-right: 1px solid #073642;
 }
 
@@ -157,7 +157,7 @@ body[type*=server] .sender { display: none; }
 
 /* Fix action formatting. */
 .line[type*=action] .sender {
-    padding: 4px 8px 3px;
+    padding: 5px 8px 3px;
     /*border-right: none;*/ /* Experiment with this. */
     /* Will need to place a border on the bottom of own */
     /* sender area. */
@@ -499,6 +499,12 @@ body[type*=server] .event .message:before {
     /*color: #ff0000;*/
 }
 
+/* We can cheat a little to adjust the sender nick */
+/* on highlight messages so it's more vertically aligned. */
+.text[highlight*=true] .sender {
+    padding: 9px 8px 3px;
+}
+
 .text[highlight*=true] {
     border: 1px solid #284e84;
     border-left: none;
@@ -672,7 +678,7 @@ body .sender[type*=normal][colornumber='14'], body .inline_nickname[colornumber=
 body .sender[type*=normal][colornumber='15'], body .inline_nickname[colornumber='15'] { color: #f66e72; }
 body .sender[type*=normal][colornumber='16'], body .inline_nickname[colornumber='16'] { color: #faa4a6; }
 body .sender[type*=normal][colornumber='17'], body .inline_nickname[colornumber='17'] { color: #ffd4a8; }
-body .sender[type*=normal][colornumber='18'], body .inline_nickname[colornumber='18'] { color: #ffeba5; }
+body .sender[type*=normal][colornumber='18'], body .inline_nickname[colornumber='18'] { color: #33ffbb; } /* Hi Neil ffeba5 */
 body .sender[type*=normal][colornumber='19'], body .inline_nickname[colornumber='19'] { color: #bae2b6; }
 body .sender[type*=normal][colornumber='20'], body .inline_nickname[colornumber='20'] { color: #aad0d4; }
 body .sender[type*=normal][colornumber='21'], body .inline_nickname[colornumber='21'] { color: #a8d0ef; }
