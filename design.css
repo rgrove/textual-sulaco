@@ -218,6 +218,20 @@ body[type*=server] .sender { display: none; }
     content: '← ';
 }
 
+/* Lock icon that appears next to OTR chats. */
+/* (Off the record) */
+.encryptionLock {
+    display: none;
+/*    height: 26px;
+    padding-left: 10px;
+    padding-bottom: 10px;*/
+}
+
+/* Keep messing around with this. */
+body div.line[ltype*=off-the-record-encryption-status] {
+    color: #ff0000 !important;
+}
+
 // Ineffective, keep working
 /*body div.line[ltype=debug] {*/
 /*div[type*=notice] {*/
