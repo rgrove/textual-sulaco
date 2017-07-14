@@ -200,17 +200,30 @@ body[type*=server] .sender { display: none; }
 }*/
 
 /* Affects only the before message, in this */
-/* case just the arrows before the message occurs. */
+/* case just the arrows before the event message */
+/* occurs. */
 .event .message:before {
     content: '» ';
 }
 
+/* Different symbols for join/leave messages */
+/* for easier visual reference. */
+.line[type*=join] .message:before {
+    content: '→ ';
+}
+
+.line[type*=kick] .message:before,
+.line[type*=part] .message:before,
+.line[type*=quit] .message:before {
+    content: '← ';
+}
+
 // Ineffective, keep working
-.line[type*=notice] {
+/*body div.line[ltype=debug] {*/
 /*div[type*=notice] {*/
 /*body div.line[type*=notice] {*/
-    color: #ff0000 !important;
-}
+    /*color: #ff0000 !important;*/
+/*}*/
 
 /* Working on Events */
 /*.line .event {
