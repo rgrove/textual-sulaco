@@ -40,6 +40,8 @@ NOTE: The theme currently displays the full topic bar at all times. If you wish 
 
 ## TO-DO
 
+* Fix broken CSS for OTR messages.
+
 * Change topic bar aesthetic.
 
 * Add nickname reference boxes in messages à la Whisper. [Essentially complete. I would like to ensure that references to own nickname match the color of the nick in the sender field, but not even Whisper does this, so I'm not sure if it's feasible.]
