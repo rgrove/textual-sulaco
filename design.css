@@ -43,7 +43,10 @@ a:link {
     color: #268bd2;
     /* Don't let long links break the layout */
     display: inline-block;
-    vertical-align: top;
+
+    /* Removed for now because it doesn't play nice */
+    /* on lines with inline nick boxes.*/
+    /*vertical-align: top;*/
     max-width: 100%;
     /*max-width: 60em;*/
 }
@@ -63,7 +66,6 @@ span.channel {
     position: absolute;
     right: 0;
     top: 0;
-    border-bottom: 1px solid #073642;
 }
 
 body[type*=server] #body_home {
@@ -144,15 +146,15 @@ body[type*=server] .sender { display: none; }
 /* /me */
 .line[type*=action] .message,
 .line[type*=action] .sender {
-    background: #002b36;
+    /*background: #002b36;*/
     font-style: italic;
 }
 
 /* Match own nick field on actions with regular */
 /* lighter color of own nick field. */
-.line[nickname-type*=myself], 
+.line[nickname-type*=myself] 
 .line[type*=action] .sender {
-    background: #073642;
+    /*background: #073642;*/
 }
 
 /* Fix action formatting. */
@@ -187,7 +189,6 @@ body[type*=server] .sender { display: none; }
 
 .event:hover .message, .event:hover .time {
     color: #839496 !important;
-    /*839496*/
 }
 
 /* THESE WORK!!! BUT THEY NEED TO WORK AT THE SAME TIME */
@@ -210,12 +211,26 @@ body[type*=server] .sender { display: none; }
 /* for easier visual reference. */
 .line[type*=join] .message:before {
     content: '→ ';
+    font-weight: bold;
+}
+
+/* Green for joins */
+.line[type*=join] .message:hover:before {
+    color: #339933 !important;
 }
 
 .line[type*=kick] .message:before,
 .line[type*=part] .message:before,
 .line[type*=quit] .message:before {
     content: '← ';
+    font-weight: bold;
+}
+
+/* Red for leaving */
+.line[type*=kick] .message:hover:before,
+.line[type*=part] .message:hover:before,
+.line[type*=quit] .message:hover:before {
+    color: #dc322f !important;
 }
 
 /* Lock icon that appears next to OTR chats. */
@@ -224,20 +239,45 @@ body[type*=server] .sender { display: none; }
     display: none;
 /*    height: 26px;
     padding-left: 10px;
-    padding-bottom: 10px;*/
+    padding-bottom: 10px;
+    padding: 5px 8px 3px;*/
 }
 
 /* Keep messing around with this. */
-body div.line[ltype*=off-the-record-encryption-status] {
-    color: #ff0000 !important;
+body div.line[ltype*=off-the-record-encryption-status] p {
+    /*background-color: #ff0000 !important;*/
+    display: block !important;
+    margin: 0px !important;
+    border: 0px !important;
+    padding: 0px !important;
+    background-color: #ff0000;
+}
+
+/* This changes the bar to the right */
+.line[ltype*=off-the-record-encryption-status]:hover {
+    background-color: #ff0000;
+    color: #859900 !important;
+}
+
+/* This changes what's inside the actual event */
+.message[ltype*=off-the-record-encryption-status]:hover {
+    color: #859900 !important;
+}
+
+.time[ltype*=off-the-record-encryption-status]:hover {
+
 }
 
 // Ineffective, keep working
 /*body div.line[ltype=debug] {*/
 /*div[type*=notice] {*/
-/*body div.line[type*=notice] {*/
-    /*color: #ff0000 !important;*/
-/*}*/
+/*.event .message[command="319"] {
+    background-color: #ff0000 !important;
+}*/
+
+.message[type*=debug] {
+    background-color: #ff0000 !important;
+}
 
 /* Working on Events */
 /*.line .event {
@@ -532,6 +572,10 @@ body[type*=server] .event .message:before {
     padding: 9px 8px 3px;
 }
 
+.text[highlight*=true][type*=privmsg] .sender {
+    padding: 5px 8px 3px !important;
+}
+
 .text[highlight*=true] {
     border: 1px solid #284e84;
     border-left: none;
@@ -685,39 +729,166 @@ body .inline_nickname:hover {
     margin: 2px 0;*/
 }
 
+.message[class*=inline_nickname] .sender  {
+    color: #ff0000 !important;
+}
+
 body .text .sender[type*=myself] { color: #6c71c4; }
 
-body .sender[type*=normal][colornumber='0'], body .inline_nickname[colornumber='0']  { color: #7cfc00; }
-body .sender[type*=normal][colornumber='1'], body .inline_nickname[colornumber='1']  { color: #c2ff40; }
-body .sender[type*=normal][colornumber='2'], body .inline_nickname[colornumber='2']  { color: #87ceeb; }
-body .sender[type*=normal][colornumber='3'], body .inline_nickname[colornumber='3']  { color: #e1c4ff; }
-body .sender[type*=normal][colornumber='4'], body .inline_nickname[colornumber='4']  { color: #6495ed; }
-body .sender[type*=normal][colornumber='5'], body .inline_nickname[colornumber='5']  { color: #ff69b4; }
-body .sender[type*=normal][colornumber='6'], body .inline_nickname[colornumber='6']  { color: #ffb6c1; }
-body .sender[type*=normal][colornumber='7'], body .inline_nickname[colornumber='7']  { color: #48d1cc; }
-body .sender[type*=normal][colornumber='8'], body .inline_nickname[colornumber='8']  { color: #ee82ee; }
-body .sender[type*=normal][colornumber='9'], body .inline_nickname[colornumber='9']  { color: #f66e72; }
-body .sender[type*=normal][colornumber='10'], body .inline_nickname[colornumber='10'] { color: #69ff89; }
-body .sender[type*=normal][colornumber='11'], body .inline_nickname[colornumber='11'] { color: #ffe170; }
-body .sender[type*=normal][colornumber='12'], body .inline_nickname[colornumber='12'] { color: #95d38f; }
-body .sender[type*=normal][colornumber='13'], body .inline_nickname[colornumber='13'] { color: #7eb6be; }
-body .sender[type*=normal][colornumber='14'], body .inline_nickname[colornumber='14'] { color: #f3d8e2; }
-body .sender[type*=normal][colornumber='15'], body .inline_nickname[colornumber='15'] { color: #f66e72; }
-body .sender[type*=normal][colornumber='16'], body .inline_nickname[colornumber='16'] { color: #faa4a6; }
-body .sender[type*=normal][colornumber='17'], body .inline_nickname[colornumber='17'] { color: #ffd4a8; }
-body .sender[type*=normal][colornumber='18'], body .inline_nickname[colornumber='18'] { color: #33ffbb; } /* Hi Neil ffeba5 */
-body .sender[type*=normal][colornumber='19'], body .inline_nickname[colornumber='19'] { color: #bae2b6; }
-body .sender[type*=normal][colornumber='20'], body .inline_nickname[colornumber='20'] { color: #aad0d4; }
-body .sender[type*=normal][colornumber='21'], body .inline_nickname[colornumber='21'] { color: #a8d0ef; }
-body .sender[type*=normal][colornumber='22'], body .inline_nickname[colornumber='22'] { color: #98a3ff; }
-body .sender[type*=normal][colornumber='23'], body .inline_nickname[colornumber='23'] { color: #c09bc3; }
-body .sender[type*=normal][colornumber='24'], body .inline_nickname[colornumber='24'] { color: #c38074; }
-body .sender[type*=normal][colornumber='25'], body .inline_nickname[colornumber='25'] { color: #a6e1a4; }
-body .sender[type*=normal][colornumber='26'], body .inline_nickname[colornumber='26'] { color: #7f99e1; }
-body .sender[type*=normal][colornumber='27'], body .inline_nickname[colornumber='27'] { color: #5ba2e1; }
-body .sender[type*=normal][colornumber='28'], body .inline_nickname[colornumber='28'] { color: #e1de7d; }
-body .sender[type*=normal][colornumber='29'], body .inline_nickname[colornumber='29'] { color: #e199a8; }
-body .sender[type*=normal][colornumber='30'], body .inline_nickname[colornumber='30'] { color: #b5a0e1; }
+body .sender[type*=normal][colornumber='0'],
+body .inline_nickname[colornumber='0'] {
+    color: #7cfc00;
+}
+
+body .sender[type*=normal][colornumber='1'],
+body .inline_nickname[colornumber='1']  { 
+    color: #c2ff40;
+}
+
+body .sender[type*=normal][colornumber='2'],
+body .inline_nickname[colornumber='2']  { 
+    color: #87ceeb;
+}
+
+body .sender[type*=normal][colornumber='3'],
+body .inline_nickname[colornumber='3']  { 
+    color: #e1c4ff;
+}
+
+body .sender[type*=normal][colornumber='4'],
+body .inline_nickname[colornumber='4']  { 
+    color: #6495ed;
+}
+
+body .sender[type*=normal][colornumber='5'],
+body .inline_nickname[colornumber='5']  { 
+    color: #ff69b4;
+}
+
+body .sender[type*=normal][colornumber='6'],
+body .inline_nickname[colornumber='6']  { 
+    color: #ffb6c1;
+}
+
+body .sender[type*=normal][colornumber='7'],
+body .inline_nickname[colornumber='7']  { 
+    color: #48d1cc;
+}
+
+body .sender[type*=normal][colornumber='8'],
+body .inline_nickname[colornumber='8']  { 
+    color: #ee82ee;
+}
+
+body .sender[type*=normal][colornumber='9'],
+body .inline_nickname[colornumber='9']  { 
+    color: #f66e72;
+}
+
+body .sender[type*=normal][colornumber='10'],
+body .inline_nickname[colornumber='10'] { 
+    color: #69ff89;
+}
+
+body .sender[type*=normal][colornumber='11'],
+body .inline_nickname[colornumber='11'] { 
+    color: #ffe170;
+}
+
+body .sender[type*=normal][colornumber='12'],
+body .inline_nickname[colornumber='12'] { 
+    color: #95d38f;
+}
+
+body .sender[type*=normal][colornumber='13'],
+body .inline_nickname[colornumber='13'] { 
+    color: #7eb6be;
+}
+
+body .sender[type*=normal][colornumber='14'],
+body .inline_nickname[colornumber='14'] { 
+    color: #f3d8e2;
+}
+
+body .sender[type*=normal][colornumber='15'],
+body .inline_nickname[colornumber='15'] { 
+    color: #f66e72;
+}
+
+body .sender[type*=normal][colornumber='16'],
+body .inline_nickname[colornumber='16'] { 
+    color: #faa4a6;
+}
+
+body .sender[type*=normal][colornumber='17'],
+body .inline_nickname[colornumber='17'] { 
+    color: #ffd4a8;
+}
+
+body .sender[type*=normal][colornumber='18'],
+body .inline_nickname[colornumber='18'] { 
+    color: #33ffbb;
+} /* Hi Neil ffeba5 */
+
+body .sender[type*=normal][colornumber='19'],
+body .inline_nickname[colornumber='19'] { 
+    color: #bae2b6;
+}
+
+body .sender[type*=normal][colornumber='20'],
+body .inline_nickname[colornumber='20'] { 
+    color: #aad0d4;
+}
+
+body .sender[type*=normal][colornumber='21'],
+body .inline_nickname[colornumber='21'] { 
+    color: #a8d0ef;
+}
+
+body .sender[type*=normal][colornumber='22'],
+body .inline_nickname[colornumber='22'] { 
+    color: #98a3ff;
+}
+
+body .sender[type*=normal][colornumber='23'],
+body .inline_nickname[colornumber='23'] { 
+    color: #c09bc3;
+}
+
+body .sender[type*=normal][colornumber='24'],
+body .inline_nickname[colornumber='24'] { 
+    color: #c38074;
+}
+
+body .sender[type*=normal][colornumber='25'],
+body .inline_nickname[colornumber='25'] { 
+    color: #a6e1a4;
+}
+
+body .sender[type*=normal][colornumber='26'],
+body .inline_nickname[colornumber='26'] { 
+    color: #7f99e1;
+}
+
+body .sender[type*=normal][colornumber='27'],
+body .inline_nickname[colornumber='27'] { 
+    color: #5ba2e1;
+}
+
+body .sender[type*=normal][colornumber='28'],
+body .inline_nickname[colornumber='28'] { 
+    color: #e1de7d;
+}
+
+body .sender[type*=normal][colornumber='29'],
+body .inline_nickname[colornumber='29'] { 
+    color: #e199a8;
+}
+
+body .sender[type*=normal][colornumber='30'],
+body .inline_nickname[colornumber='30'] { 
+    color: #b5a0e1;
+}
 
 /* mIRC Color Codes */
 .effect[color-number='0']  { color: #ffffff; }
