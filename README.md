@@ -1,17 +1,13 @@
 Succinct Style for Textual
 ==========================
 
-Succinct is a [solarized dark](http://ethanschoonover.com/solarized) theme for the Textual IRC client based on the [Colloquy theme of the same name](https://github.com/TempSpas/succinct-for-colloquy). It's currently built off of the [Sulaco](https://github.com/rgrove/textual-sulaco) dark theme. The theme is still in beta. Screenshots coming when most of the kinks are worked out!
+Succinct is a [solarized dark](http://ethanschoonover.com/solarized) theme for the Textual IRC client based on the [Colloquy theme of the same name](https://github.com/TempSpas/succinct-for-colloquy). The code was built off of the [Sulaco](https://github.com/rgrove/textual-sulaco) dark theme. The theme is still in beta, so expect some kinks here and there.
 
 ![Screenshot](/Screenshots/screenshot1.png?raw=true)
 
 ## Features
 
-* Simple, clean design.
-
-* Emphasizes what you need.
-
-* De-emphasizes what you don’t.
+* Simple, clean design that emphasizes what you need and de-emphasizes what you don’t.
 
 * Doesn't overwrite any of your preferences. Wanna use a light UI with Sulaco?
   You can. Wanna change how nicknames or timestamps are formatted? Great! The theme is unobtrusive.
@@ -42,9 +38,9 @@ NOTE: The theme currently displays the full topic bar at all times. If you wish 
 
 * Fix broken CSS for OTR messages.
 
-* Change topic bar aesthetic.
+* Change topic bar aesthetic. (Open to suggestions).
 
-* Add nickname reference boxes in messages à la Whisper. [Essentially complete. I would like to ensure that references to own nickname match the color of the nick in the sender field, but not even Whisper does this, so I'm not sure if it's feasible.]
+* Add nickname reference boxes in messages à la Whisper. [Essentially complete. I would like to ensure that references to the user's own nickname match the color of the nick in the sender field, but not even Whisper does this, so I'm not sure if it's feasible.]
 
 * Tweak highlight message color.
 
