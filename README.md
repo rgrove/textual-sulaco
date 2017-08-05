@@ -9,8 +9,8 @@ Succinct is a [solarized dark](http://ethanschoonover.com/solarized) theme for t
 
 * Simple, clean design that emphasizes what you need and de-emphasizes what you don’t.
 
-* Doesn't overwrite any of your preferences. Wanna use a light UI with Sulaco?
-  You can. Wanna change how nicknames or timestamps are formatted? Great! The theme is unobtrusive.
+* Doesn't overwrite any of your preferences. Want to use a light UI with Succinct?
+  You can. Want to change how nicknames or timestamps are formatted? Great! The theme is unobtrusive.
 
 * Coalesces multiple consecutive messages from the same sender rather than
   displaying the same nickname over and over.
@@ -22,7 +22,7 @@ Succinct is a [solarized dark](http://ethanschoonover.com/solarized) theme for t
 
 ## Installing
 
-1. [Download the Succinct theme](https://github.com/rgrove/textual-sulaco/archive/master.zip)
+1. [Download the Succinct theme](https://github.com/TempSpas/textual-succinct/archive/master.zip)
 
 2. Open Textual's preferences. Go to Addons->Installed Addons and click the
    "Open in Finder" button next to the "Custom Addons Location" label.
