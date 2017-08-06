@@ -75,7 +75,7 @@ body[type*=server] #body_home {
 .message,
 /*.sender,*/
 .time {
-    padding: 4px 8px 3px;
+    padding: 4px 8px 4px;
     /* Eureka! This adds a subtle line between all chat messages! */
     border-top: 1px solid #073642;
 }
@@ -566,15 +566,10 @@ body[type*=server] .event .message:before {
     /*color: #ff0000;*/
 }
 
-/* We can cheat a little to adjust the sender nick */
-/* on highlight messages so it's more vertically aligned. */
-.text[highlight*=true] .sender {
-    padding: 9px 8px 3px;
-}
 
-.text[highlight*=true][type*=privmsg] .sender {
+/*.text[highlight*=true][type*=privmsg] .sender {
     padding: 5px 8px 3px !important;
-}
+}*/
 
 .text[highlight*=true] {
     border: 1px solid #284e84;
@@ -713,7 +708,7 @@ body .inline_nickname {
     background: #2C3E50;
     border: 1px solid #34495E;
     border-radius: 3px;
-    margin: 2px 0;
+    /*margin: 2px 0;*/
 }
 
 body .inline_nickname:hover {
