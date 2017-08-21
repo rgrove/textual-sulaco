@@ -14,8 +14,19 @@
 			oncontextmenu="Textual.openStandardNicknameContextualMenu()"
 			type="{{nicknameType}}"
 			nick="{{nickname}}"
+
 			{{#nicknameColorHashingEnabled}}
-				colornumber="{{nicknameColorNumber}}"
+						{{#nicknameColorHashingIsStyleBased}}
+							{{#nicknameColorStyleOverride}}
+								coloroverride="true"
+							{{/nicknameColorStyleOverride}}
+
+							{{^ isEmpty(nicknameColorStyle) }}
+							style="color: {{nicknameColorStyle}};"
+							{{/ isEmpty(nicknameColorStyle) }}
+						{{^nicknameColorHashingIsStyleBased}}
+							colornumber="{{nicknameColorNumber}}"
+						{{/nicknameColorHashingIsStyleBased}}
 			{{/nicknameColorHashingEnabled}}>
 		{{nickname}}
 	</span>

@@ -38,8 +38,6 @@ NOTE: The theme currently displays the full topic bar at all times. If you wish 
 
 * Change topic bar aesthetic. (Open to suggestions).
 
-* Add nickname reference boxes in messages à la Whisper. [Essentially complete. I would like to ensure that references to the user's own nickname match the color of the nick in the sender field, but not even Whisper does this, so I'm not sure if it's feasible.]
-
 * Tweak highlight message color.
 
 * Change notice colors.
