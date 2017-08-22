@@ -12,7 +12,6 @@ body {
     word-wrap: break-word;
 }
 
-
 /* Links */
 a {
     /*border-bottom: dotted 1px #8cb3ff;*/
@@ -251,12 +250,6 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     border: 0px !important;
     padding: 0px !important;
     background-color: #ff0000;
-}
-
-/* This changes the bar to the right */
-.line[ltype*=off-the-record-encryption-status]:hover {
-    background-color: #ff0000;
-    color: #859900 !important;
 }
 
 /* This changes what's inside the actual event */
