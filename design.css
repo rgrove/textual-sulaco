@@ -3,9 +3,7 @@
 /* Basic Body Structure */
 body {
     background: #002b36;
-    /*background: #222;*/
     color: #839496;
-    /*color: #cfcfcf;*/
     font-family: 'Myriad Pro';
     font-size: 16px;
     line-height: 1.4;
@@ -78,6 +76,7 @@ body[type*=server] #body_home {
     padding: 4px 8px 4px;
     /* Eureka! This adds a subtle line between all chat messages! */
     border-top: 1px solid #073642;
+    /*border-bottom: 1px solid #073642;*/
 }
 
 .sender {
@@ -237,6 +236,7 @@ body[type*=server] .sender { display: none; }
 /* (Off the record) */
 .encryptionLock {
     display: none;
+    vertical-align: top;
 /*    height: 26px;
     padding-left: 10px;
     padding-bottom: 10px;
@@ -264,10 +264,6 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     color: #859900 !important;
 }
 
-.time[ltype*=off-the-record-encryption-status]:hover {
-
-}
-
 // Ineffective, keep working
 /*body div.line[ltype=debug] {*/
 /*div[type*=notice] {*/
@@ -275,8 +271,14 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     background-color: #ff0000 !important;
 }*/
 
+/* Changes disconnect messages */
+.notice {
+    /*background-color: #ff0000;*/
+}
+
+/* Changes disconnect messages? */
 .message[type*=debug] {
-    background-color: #ff0000 !important;
+    /*background-color: #ff0000 !important;*/
 }
 
 /* Working on Events */
@@ -714,14 +716,6 @@ body .inline_nickname {
 body .inline_nickname:hover {
     text-decoration: underline;
     cursor: hand;
-    /*color: #fff;
-    display: inline-block;
-    line-height: 1;
-    padding: 3px 2px;
-    background: #2C3E50;
-    border: 1px solid #34495E;
-    border-radius: 3px;
-    margin: 2px 0;*/
 }
 
 .message[class*=inline_nickname] .sender  {
