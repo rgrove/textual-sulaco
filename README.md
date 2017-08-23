@@ -46,8 +46,6 @@ NOTE: The theme currently displays the full topic bar at all times. If you wish 
 
 * Make changes to inline images. Should have a more uniform alignment pattern.
 
-* Make event messages merge together as they come in. [Essentially done, would like it to be just a bit tighter though.]
-
 ## License
 
 Copyright (c) 2014 Ryan Grove (ryan@wonko.com)

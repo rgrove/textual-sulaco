@@ -70,12 +70,10 @@ body[type*=server] #body_home {
 }
 
 .message,
-/*.sender,*/
 .time {
     padding: 4px 8px 4px;
     /* Eureka! This adds a subtle line between all chat messages! */
     border-top: 1px solid #073642;
-    /*border-bottom: 1px solid #073642;*/
 }
 
 .sender {
@@ -175,14 +173,16 @@ body[type*=server] .sender { display: none; }
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em !important;
-    line-height: 1.2rem;
+    padding: 2 8px;
+    line-height: 1.0rem;
 }
 
 /*body[type*=channel]*/ .event .time {
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em !important;
-    line-height: 1.2rem;
+    padding: 2 8px;
+    line-height: 1.0rem;
 }
 
 .event:hover .message, .event:hover .time {
@@ -209,7 +209,6 @@ body[type*=server] .sender { display: none; }
 /* for easier visual reference. */
 .line[type*=join] .message:before {
     content: '→ ';
-    font-weight: bold;
 }
 
 /* Green for joins */
@@ -265,14 +264,14 @@ body div.line[ltype*=off-the-record-encryption-status] p {
 }*/
 
 /* Changes disconnect messages */
-.notice {
-    /*background-color: #ff0000;*/
-}
+/*.notice {
+    background-color: #ff0000;
+}*/
 
 /* Changes disconnect messages? */
-.message[type*=debug] {
-    /*background-color: #ff0000 !important;*/
-}
+/*.message[type*=debug] {
+    background-color: #ff0000 !important;
+}*/
 
 /* Working on Events */
 /*.line .event {
@@ -289,14 +288,17 @@ body div.line[ltype*=off-the-record-encryption-status] p {
 
 /* Shifts the event messages slightly to the right */
 .event > * {
-  padding: 2 8px;
+    padding: 2 8px;
+    background-color: #ff0000;
 }
 
 /* These are lifted from the Colloquy original */
 /* in order to compress channel events. */
+
+/* This block controls subsequent events */
 .event + .event > * {
     padding: 2 8px;
-    position: relative;
+    /*position: relative;*/
     /* Un-do first event's bottom padding. */
     /*top: -4px;*/
     border-top: 1px solid transparent;
@@ -316,11 +318,11 @@ body div.line[ltype*=off-the-record-encryption-status] p {
 
 /*.event + .message {
     padding: 0 8px;
-    position: relative;
+    position: relative;*/
     /* Un-do first event's bottom padding. */
     top: -4px;
-    /*border-top: 1px solid #073642;
-}*/
+    /*border-top: 1px solid #073642; */
+/*}*/
 
 
 
@@ -647,18 +649,18 @@ body div#loading_screen {
     /* Uncomment this and lines 595-598 for */
     /* a topic bar that only shows the whole */
     /* topic when hovering. */
-    /*overflow: hidden;
+    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;*/
+    text-overflow: ellipsis;
 }
 
 /* Uncomment this and the lines in #topic_bar */
 /* for a topic bar that only shows the whole */
 /* topic when hovering. */
-/*#topic_bar:hover {
+#topic_bar:hover {
     overflow: visible;
     white-space: normal;
-}*/
+}
 
 
 /* Links in topic bar */
