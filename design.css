@@ -256,12 +256,16 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     color: #859900 !important;
 }
 
-// Ineffective, keep working
-/*body div.line[ltype=debug] {*/
-/*div[type*=notice] {*/
-/*.event .message[command="319"] {
-    background-color: #ff0000 !important;
-}*/
+/* Whois message */
+.message[type*=debug] {
+    background-color: #073642;
+    color: #93a1a1 !important;
+}
+
+.line[type*=debug] .time {
+    background-color: #073642;
+    color: #93a1a1 !important;
+}
 
 /* Changes disconnect messages */
 /*.notice {
@@ -562,7 +566,6 @@ body[type*=server] .event .message:before {
     color: #2aa198 !important;
     /*color: #ff0000;*/
 }
-
 
 /*.text[highlight*=true][type*=privmsg] .sender {
     padding: 5px 8px 3px !important;
