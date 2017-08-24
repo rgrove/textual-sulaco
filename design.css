@@ -267,6 +267,12 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     color: #93a1a1 !important;
 }
 
+.message[type*=notice],
+.line[type*=notice] .time {
+    background-color: #073642;
+    color: #93a1a1 !important;
+}
+
 /* Changes disconnect messages */
 /*.notice {
     background-color: #ff0000;
