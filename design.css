@@ -642,14 +642,15 @@ body div#loading_screen {
 
 /* Topic Bar */
 #topic_bar {
-    background: #333;
+    /*background: #333;*/
+    background: rgba(51, 51, 51, 0.7); 
     border-bottom: 1px solid #404040;
     /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.8);*/
     /*color: #efefef;*/
     color: #93a1a1;
     font-weight: 600;
     left: 0;
-    opacity: 0.8 !important;  /* Overrides JS opacity. */ 
+    opacity: 1.0 !important;  /* Overrides JS opacity. */ 
     padding: 4px 12px 2px;
     position: fixed;
     right: 0;
@@ -669,7 +670,7 @@ body div#loading_screen {
 /* for a topic bar that only shows the whole */
 /* topic when hovering. */
 #topic_bar:hover {
-    opacity: 1.0 !important;  /* Overrides JS opacity. */ 
+    background: rgba(51, 51, 51, 1.0);
     /*overflow: visible;
     white-space: normal;*/
 }
