@@ -93,6 +93,7 @@ body[type*=server] .message {
 
 .time {
     color: #839496 !important;
+    padding: 4px 8px 4px;
 }
 
 /* Background of  */
@@ -324,6 +325,7 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     /* Un-do first event's bottom padding. */
     top: -4px;
     border-top: 1px solid transparent;
+    background-color: #ff0000;
 }
 
 /*.event + .message {
@@ -647,7 +649,7 @@ body div#loading_screen {
     color: #93a1a1;
     font-weight: 600;
     left: 0;
-    opacity: 1.0 !important;  /* Overrides JS opacity. */ 
+    opacity: 0.8 !important;  /* Overrides JS opacity. */ 
     padding: 4px 12px 2px;
     position: fixed;
     right: 0;
@@ -658,24 +660,24 @@ body div#loading_screen {
     /* Uncomment this and lines 595-598 for */
     /* a topic bar that only shows the whole */
     /* topic when hovering. */
-    overflow: hidden;
+    /*overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis;*/
 }
 
 /* Uncomment this and the lines in #topic_bar */
 /* for a topic bar that only shows the whole */
 /* topic when hovering. */
 #topic_bar:hover {
-    overflow: visible;
-    white-space: normal;
+    opacity: 1.0 !important;  /* Overrides JS opacity. */ 
+    /*overflow: visible;
+    white-space: normal;*/
 }
 
 
 /* Links in topic bar */
 #topic_bar a,
 #topic_bar span.channel {
-    /*color: #f5f5f5;*/
     color: #268bd2;
     border-color: #268bd2;
     /*border-color: #f5f5f5;*/

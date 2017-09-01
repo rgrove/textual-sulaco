@@ -40,9 +40,7 @@ Succinct is a [solarized dark](http://ethanschoonover.com/solarized) theme for t
 
 * Tweak highlight message color.
 
-* Change notice colors.
-
-* Change colors on /whois messages.
+* Change style/color of /whois messages.
 
 * Make changes to inline images. Should have a more uniform alignment pattern.
 
