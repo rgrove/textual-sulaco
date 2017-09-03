@@ -36,17 +36,17 @@ Succinct is a [solarized dark](http://ethanschoonover.com/solarized) theme for t
 
 ## TO-DO
 
-* Change topic bar aesthetic. (Open to suggestions).
-
 * Tweak highlight message color.
 
 * Change style/color of /whois messages.
+
+* Add compatibility for scrollback buffer introduced in beta versions.
 
 * Make changes to inline images. Should have a more uniform alignment pattern.
 
 ## License
 
-Copyright (c) 2014 Ryan Grove (ryan@wonko.com)
+Copyright (c) 2017
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the ‘Software’), to deal in
