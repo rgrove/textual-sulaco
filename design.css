@@ -262,6 +262,11 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     background-color: #073642;
     color: #93a1a1 !important;
 }
+.line[type*=debug] .sender{
+    /*background-color: #073642 !important;*/
+    /*content: "» ";*/
+    /*color: #93a1a1 !important;*/
+}
 
 .line[type*=debug] .time {
     background-color: #073642;
