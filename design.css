@@ -619,6 +619,35 @@ body[type*=server] .event .message:before {
     border-top: 1px dashed #b58900;
 }
 
+/********** Message buffer session indicator **********/
+
+.message_buffer_session_indicator {
+    display: flex;
+    display: -webkit-flex;
+    padding: 0.5em 0;
+}
+
+.message_buffer_session_indicator > hr {
+    background: #dbdbdb;
+    border: 0;
+    height: 1px;
+    margin-top: 0.6em;
+    flex: 1;
+    -webkit-flex: 1;
+}
+
+.message_buffer_session_indicator > span {
+    font-style: oblique;
+    margin: 0 1em;
+    color: #a6a6a6;
+}
+
+.message_buffer_session_indicator + #mark {
+    display: none;
+}
+
+/* ************************************************* */
+
 /* Mark made with Command-L. */
 #mark {
     border-bottom: 1px dotted #b58900;
