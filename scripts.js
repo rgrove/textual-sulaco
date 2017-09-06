@@ -105,10 +105,10 @@ Textual.newMessagePostedToView = function (lineNum) {
     Sulaco.coalesceMessages(lineNum);
 };
 
-// Textual.messageAddedToView(lineNumber, fromBuffer) {
+// Textual.messageAddedToView(lineNumber) {
 //     Sulaco.handleBufferPlayback(lineNum);
 //     Sulaco.coalesceMessages(lineNum);
-// }
+// };
 
 Textual.viewFinishedLoading = function () {
     Textual.fadeOutLoadingScreen(1.00, 0.95);
