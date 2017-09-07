@@ -478,8 +478,7 @@ body div#loading_screen {
 
 /* Topic Bar */
 #topic_bar {
-    /*background: #333;*/
-    background: rgba(51, 51, 51, 0.7); 
+    background: rgba(51, 51, 51, 0.7); /* #333 */
     border-bottom: 1px solid #404040;
     /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.8);*/
     /*color: #efefef;*/
@@ -502,11 +501,15 @@ body div#loading_screen {
     text-overflow: ellipsis;*/
 }
 
-/* Uncomment this and the lines in #topic_bar */
-/* for a topic bar that only shows the whole */
-/* topic when hovering. */
+/* Hovering over the topic makes it completely */
+/* opaque. */
 #topic_bar:hover {
     background: rgba(51, 51, 51, 1.0);
+
+    /* Uncomment these and the lines in #topic_bar */
+    /* for a topic bar that only shows the whole */
+    /* topic when hovering. */
+
     /*overflow: visible;
     white-space: normal;*/
 }
