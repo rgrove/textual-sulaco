@@ -430,7 +430,7 @@ body[type*=server] .event .message:before {
 }
 
 .message_buffer_session_indicator > hr {
-    background: #dbdbdb;
+    background: #93a1a1; /* Lines on either side */
     border: 0;
     height: 1px;
     margin-top: 0.6em;
@@ -441,7 +441,7 @@ body[type*=server] .event .message:before {
 .message_buffer_session_indicator > span {
     font-style: oblique;
     margin: 0 1em;
-    color: #a6a6a6;
+    color: #93a1a1;
 }
 
 .message_buffer_session_indicator + #mark {
@@ -483,6 +483,7 @@ body div#loading_screen {
     /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.8);*/
     /*color: #efefef;*/
     color: #93a1a1;
+    /*font-size: small !important;*/
     font-weight: 600;
     left: 0;
     opacity: 1.0 !important;  /* Overrides JS opacity. */ 
