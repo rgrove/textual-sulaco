@@ -66,7 +66,7 @@ Succinct = {
 
     getSenderNick: function (line) {
         var senderEl = Succinct.getSenderEl(line);
-        return senderEl ? senderEl.getAttribute('nickname') : null;
+        return senderEl ? senderEl.getAttribute('nick') : null;
     },
 
     handleBufferPlayback: function (lineNum, fromBuffer) {
@@ -114,7 +114,7 @@ Succinct = {
 //     Succinct.coalesceMessages(lineNum);
 // };
 
-Textual.messageAddedToView(lineNumber, fromBuffer) {
+Textual.messageAddedToView = function(lineNumber, fromBuffer) {
     Succinct.handleBufferPlayback(lineNum, fromBuffer);
     Succinct.coalesceMessages(lineNum, fromBuffer);
 };
