@@ -1,97 +1,75 @@
-var doc = document,
-    qs  = doc.querySelector;
+// -- Succinct -------------------------------------------------------------------
 
-// -- Sulaco -------------------------------------------------------------------
-var Sulaco;
+var Succinct;
 
-Sulaco = {
-    lineCache: {},
-    playbackMode: false,
+Succinct = {
+    coalesceMessages: function (line)
+    {
+        var previousLine = Succinct.getPreviousLine(line);
+        var previousSender = Succinct.getSenderNickname(previousLine);
+        var sender = Succinct.getSenderNickname(line);
 
-    coalesceMessages: function (lineNum) {
-        var lineEl     = Sulaco.getLineEl(lineNum),
-            prevLineEl = lineEl && Sulaco.getLineEl(lineEl.previousElementSibling),
-            prevSender = Sulaco.getSenderNick(prevLineEl),
-            sender     = Sulaco.getSenderNick(lineEl);
-
-        if (!sender || !prevSender) {
+        if (sender === null || previousSender === null)
+        {
             return;
         }
 
-        if (sender === prevSender
-                && Sulaco.getLineType(lineEl) === 'privmsg'
-                && Sulaco.getLineType(prevLineEl) === 'privmsg') {
+        if (sender === previousSender &&
+            Succinct.getLineType(line) === 'privmsg' && 
+            Succinct.getLineType(previousLine) === 'privmsg')
+        {
 
-            lineEl.classList.add('coalesced');
-            Sulaco.getSenderEl(lineEl).innerHTML = '';
+            line.classList.add('coalesced');
+            Succinct.getSenderElement(line).innerHTML = '';
         }
     },
 
-    getLineEl: function (lineNum) {
-        if (typeof lineNum === 'string') {
-            return doc.getElementById('line' + lineNum);
-        }
+    getPreviousLine: function (line)
+    {
+        var previousLine = line.previousElementSibling;
 
-        if (lineNum && lineNum.classList
-                && lineNum.classList.contains('line')) {
-            return lineNum;
+        if (previousLine &&
+            previousLine.classList &&
+            previousLine.classList.contains('line'))
+        {
+            return previousLine;
         }
 
         return null;
     },
 
-    getLineType: function (line) {
-        line = Sulaco.getLineEl(line);
-        return line ? line.getAttribute('type') : null;
+    getLineType: function (line)
+    {
+        return ((line) ? line.getAttribute('ltype') : null);
     },
 
-    getMessage: function (line) {
-        line = Sulaco.getLineEl(line);
-        return line ? line.querySelector('.message').textContent.trim() : null;
+    getMessage: function (line)
+    {
+        return ((line) ? line.querySelector('.message').textContent.trim() : null);
     },
 
-    getSenderEl: function (line) {
-        line = Sulaco.getLineEl(line);
-        return line ? line.querySelector('.sender') : null;
+    getSenderElement: function (line)
+    {
+        return ((line) ? line.querySelector('.sender') : null);
     },
 
-    getSenderNick: function (line) {
-        var senderEl = Sulaco.getSenderEl(line);
-        return senderEl ? senderEl.getAttribute('nick') : null;
+    getSenderNickname: function (line)
+    {
+        var sender = Succinct.getSenderElement(line);
+        return ((sender) ? sender.getAttribute('nickname') : null);
     },
 
-    handleBufferPlayback: function (lineNum) {
-        var line = Sulaco.getLineEl(lineNum),
-            message;
-
-        if (Sulaco.getSenderNick(line) === '***') {
-            message = Sulaco.getMessage(line);
-
-            if (message === 'Buffer Playback...') {
-                line.classList.add('znc-playback-start');
-                Sulaco.playbackMode = true;
-            } else if (message === 'Playback Complete.') {
-                line.classList.add('znc-playback-end');
-                Sulaco.playbackMode = false;
-            }
-
-            return;
-        }
-
-        if (Sulaco.playbackMode) {
-            var match;
-
-            line.classList.add('znc-playback');
-
-            message = Sulaco.getMessage(line);
-            match   = message.match(/^\[(\d\d:\d\d:\d\d)\] /);
-
-            if (match) {
-                var msgEl = line.querySelector('.message');
-
-                line.querySelector('.time').textContent = match[1];
-                msgEl.innerHTML = msgEl.innerHTML.replace(/^\s*\[\d\d:\d\d:\d\d\]/, '');
-            }
+    setWhoisTags: function(line, fromBuffer)
+    {
+        if (line.getAttribute('command') === '311' ||
+            line.getAttribute('command') === '378' ||
+            line.getAttribute('command') === '307' ||
+            line.getAttribute('command') === '319' ||
+            line.getAttribute('command') === '312' ||
+            line.getAttribute('command') === '671' ||
+            line.getAttribute('command') === '317')
+        {
+            line.classList.add('whois');
         }
     }
 };
@@ -100,19 +78,18 @@ Sulaco = {
 
 // Defined in: "Textual.app -> Contents -> Resources -> JavaScript -> API -> core.js"
 
-Textual.newMessagePostedToView = function (lineNum) {
-    Sulaco.handleBufferPlayback(lineNum);
-    Sulaco.coalesceMessages(lineNum);
-};
+Textual.viewBodyDidLoad = function()
+{
+    Textual.fadeOutLoadingScreen(1.00, 0.90);
+}
 
-Textual.viewFinishedLoading = function () {
-    Textual.fadeOutLoadingScreen(1.00, 0.95);
+Textual.messageAddedToView = function(line, fromBuffer)
+{
+    var element = document.getElementById("line-" + line);
 
-    setTimeout(function () {
-        Textual.scrollToBottomOfView();
-    }, 300);
-};
+    // Succinct.handleBufferPlayback(lineNum, fromBuffer);
+    Succinct.coalesceMessages(element);
+    Succinct.setWhoisTags(element);
 
-Textual.viewFinishedReload = function () {
-    Textual.viewFinishedLoading();
-};
+    ConversationTracking.updateNicknameWithNewMessage(element);
+}

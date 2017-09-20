@@ -103,7 +103,7 @@ body[type*=server] .message {
 }
 
 /* Background of field containing own nickname */
-.sender[type*=self] {
+.text .sender[mtype="myself"] {
     /*min-width: 105px;
     max-width: 220px;*/
     background: #073642;
@@ -141,8 +141,8 @@ body[type*=server] .sender { display: none; }
 }
 
 /* /me */
-.line[type*=action] .message,
-.line[type*=action] .sender {
+.line[ltype*=action] .message,
+.line[ltype*=action] .sender {
     /*background: #002b36;*/
     font-style: italic;
 }
@@ -150,7 +150,7 @@ body[type*=server] .sender { display: none; }
 /* Match own nick field on actions with regular */
 /* lighter color of own nick field. */
 .line[nickname-type*=myself] 
-.line[type*=action] .sender {
+.line[ltype*=action] .sender {
     /*background: #073642;*/
 }
 
@@ -164,7 +164,7 @@ body[type*=server] .sender { display: none; }
 
 /* Placed before the user's name when performing */
 /* a /me action. */
-.line[type*=action] .sender:before {
+.line[ltype*=action] .sender:before {
     content: '• ';
 }
 
@@ -186,7 +186,7 @@ body[type*=server] .sender { display: none; }
     line-height: 1.0rem;
 }
 
-.event:hover .message, .event:hover .time {
+.event:hover .message, .event:hover .time{
     color: #839496 !important;
 }
 
@@ -208,26 +208,26 @@ body[type*=server] .sender { display: none; }
 
 /* Different symbols for join/leave messages */
 /* for easier visual reference. */
-.line[type*=join] .message:before {
+.line[ltype*=join] .message:before {
     content: '→ ';
 }
 
 /* Green for joins */
-.line[type*=join] .message:hover:before {
+.line[ltype*=join] .message:hover:before {
     color: #339933 !important;
 }
 
-.line[type*=kick] .message:before,
-.line[type*=part] .message:before,
-.line[type*=quit] .message:before {
+.line[ltype*=kick] .message:before,
+.line[ltype*=part] .message:before,
+.line[ltype*=quit] .message:before {
     content: '← ';
     font-weight: bold;
 }
 
 /* Red for leaving */
-.line[type*=kick] .message:hover:before,
-.line[type*=part] .message:hover:before,
-.line[type*=quit] .message:hover:before {
+.line[ltype*=kick] .message:hover:before,
+.line[ltype*=part] .message:hover:before,
+.line[ltype*=quit] .message:hover:before {
     color: #dc322f !important;
 }
 
@@ -257,11 +257,17 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     color: #859900 !important;
 }
 
-/* Whois message */
-.message[type*=debug] {
+/* Whois message styling */
+.whois .message {
     background-color: #073642;
     color: #93a1a1 !important;
 }
+
+.whois .time {
+    background-color: #073642;
+    color: #93a1a1 !important;
+}
+
 .line[type*=debug] .sender{
     /*background-color: #073642 !important;*/
     /*content: "» ";*/
@@ -340,204 +346,6 @@ body div.line[ltype*=off-the-record-encryption-status] p {
     top: -4px;
     /*border-top: 1px solid #073642; */
 /*}*/
-
-
-
-/* This makes the quit message smaller */
-/*.line[type*=quit] .message {
-    color: #ff0000;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}*/
-
-/* BEGINNING OF ADDITIONS FOR EVENTS */
-
-/* Makes the mode messages smaller font */
-/*.line[type*=mode] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}*/
-
-/* Brightens the color of mode messages upon hovering */
-/*.line[type*=mode]:hover .message {
-    color: #839496 !important;
-}*/
-
-/* Convert timestamp background to black to match */
-/* mode messsage. */
-/*.line[type*=mode] .time {
-    font-style: normal;
-    color: #444444 !important;
-    background-color: #000000;
-}*/
-
-/* Brighten the timestamp text when hovering. (For MODE) */
-/*.line[type*=mode]:hover .time {
-    color: #839496 !important;
-}*/
-
-/* Makes the topic messages smaller font */
-/*.line[type*=topic] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}*/
-
-/* Brighten the topic text when hovering over. */
-/*.line[type*=topic]:hover .message {
-    color: #839496 !important;
-}
-
-.line[type*=topic] .time {
-    font-style: normal;
-    color: #444444 !important;
-    background-color: #000000;
-    font-size: 0.8em;
-}*/
-
-/* Brighten the topic timestamp text when hovering over. */
-/*.line[type*=topic]:hover .time {
-    color: #839496 !important;
-}*/
-
-/* Makes the join messages smaller font */
-/*.line[type*=join] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}*/
-
-/*.line[type*=join]:hover .message {
-    color: #839496 !important;
-}
-
-.line[type*=join] .time {
-    font-style: normal;
-    background-color: #000000;
-    color: #444444;
-    font-size: 0.8em;
-}
-
-.line[type*=join]:hover .time {
-    color: #839496 !important;
-}*/
-
-/* End join */
-/* Part */
-
-/*.line[type*=part] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}
-
-.line[type*=part]:hover .message {
-    color: #839496 !important;
-}
-
-.line[type*=part] .time {
-    font-style: normal;
-    background-color: #000000;
-    color: #444444;
-    font-size: 0.8em;
-}
-
-.line[type*=part]:hover .time {
-    color: #839496 !important;
-}*/
-
-/*.line[type*=part],*/
-/*.line[type*=kill],*/
-/*.line[type*=quit] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}*/
-
-/*.line[type*=part]:hover,*/
-/*.line[type*=kill]:hover,*/
-/*.line[type*=quit]:hover .message {
-    color: #839496 !important;
-}*/
-
-/*.line[type*=part],*/
-/*.line[type*=kill],*/
-/*.line[type*=quit] .time {
-    font-style: normal;
-    background-color: #000000;
-    color: #444444;
-    font-size: 0.8em;
-}*/
-
-/*.line[type*=part]:hover,*/
-/*.line[type*=kill]:hover,*/
-/*.line[type*=quit]:hover .time {
-    color: #839496 !important;
-}*/
-
-/******** Kick **********/
-/*.line[type*=kick] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}
-
-.line[type*=kick]:hover .message {
-    color: #839496 !important;
-}
-
-.line[type*=kick] .time {
-    font-style: normal;
-    background-color: #000000;
-    color: #444444;
-    font-size: 0.8em;
-}
-
-.line[type*=kick]:hover .time {
-    color: #839496 !important;
-}*/
-/******** End Kick **********/
-
-/******** Kill **********/
-/*.line[type*=kill] .message {
-    font-style: italic;
-    color: #444444 !important;
-    background: #000000;
-    font-size: 0.8em;
-    line-height: 1.2rem;
-}
-
-.line[type*=kill]:hover .message {
-    color: #839496 !important;
-}
-
-.line[type*=kill] .time {
-    font-style: normal;
-    background-color: #000000;
-    color: #444444;
-    font-size: 0.8em;
-}
-
-.line[type*=kill]:hover .time {
-    color: #839496 !important;
-}*/
-/******** End Kill **********/
-
-/* END OF ADDITIONS FOR EVENTS */
 
 body[type*=server] .event .message {
     color: #999;
@@ -619,6 +427,35 @@ body[type*=server] .event .message:before {
     border-top: 1px dashed #b58900;
 }
 
+/********** Message buffer session indicator **********/
+
+.message_buffer_session_indicator {
+    display: flex;
+    display: -webkit-flex;
+    padding: 0.5em 0;
+}
+
+.message_buffer_session_indicator > hr {
+    background: #93a1a1; /* Lines on either side */
+    border: 0;
+    height: 1px;
+    margin-top: 0.6em;
+    flex: 1;
+    -webkit-flex: 1;
+}
+
+.message_buffer_session_indicator > span {
+    font-style: oblique;
+    margin: 0 1em;
+    color: #93a1a1;
+}
+
+.message_buffer_session_indicator + #mark {
+    display: none;
+}
+
+/* ************************************************* */
+
 /* Mark made with Command-L. */
 #mark {
     border-bottom: 1px dotted #b58900;
@@ -647,12 +484,12 @@ body div#loading_screen {
 
 /* Topic Bar */
 #topic_bar {
-    /*background: #333;*/
-    background: rgba(51, 51, 51, 0.7); 
+    background: rgba(51, 51, 51, 0.7); /* #333 */
     border-bottom: 1px solid #404040;
     /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.8);*/
     /*color: #efefef;*/
     color: #93a1a1;
+    /*font-size: small !important;*/
     font-weight: 600;
     left: 0;
     opacity: 1.0 !important;  /* Overrides JS opacity. */ 
@@ -671,11 +508,15 @@ body div#loading_screen {
     text-overflow: ellipsis;*/
 }
 
-/* Uncomment this and the lines in #topic_bar */
-/* for a topic bar that only shows the whole */
-/* topic when hovering. */
+/* Hovering over the topic makes it completely */
+/* opaque. */
 #topic_bar:hover {
     background: rgba(51, 51, 51, 1.0);
+
+    /* Uncomment these and the lines in #topic_bar */
+    /* for a topic bar that only shows the whole */
+    /* topic when hovering. */
+
     /*overflow: visible;
     white-space: normal;*/
 }
