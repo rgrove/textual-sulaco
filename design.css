@@ -141,8 +141,8 @@ body[type*=server] .sender { display: none; }
 }
 
 /* /me */
-.line[type*=action] .message,
-.line[type*=action] .sender {
+.line[ltype*=action] .message,
+.line[ltype*=action] .sender {
     /*background: #002b36;*/
     font-style: italic;
 }
@@ -150,7 +150,7 @@ body[type*=server] .sender { display: none; }
 /* Match own nick field on actions with regular */
 /* lighter color of own nick field. */
 .line[nickname-type*=myself] 
-.line[type*=action] .sender {
+.line[ltype*=action] .sender {
     /*background: #073642;*/
 }
 
@@ -164,7 +164,7 @@ body[type*=server] .sender { display: none; }
 
 /* Placed before the user's name when performing */
 /* a /me action. */
-.line[type*=action] .sender:before {
+.line[ltype*=action] .sender:before {
     content: '• ';
 }
 
