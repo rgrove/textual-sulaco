@@ -1,8 +1,9 @@
 Sulaco Textual Style
 ====================
 
-Sulaco is a dark theme for the Textual IRC client. It looks nice. It works well
-with Textual 5.
+Sulaco is a dark theme for the [Textual IRC client](https://www.codeux.com/textual/). It looks nice.
+
+**Note:** As of Textual 7.0.4, Sulaco is included with Textual as one of the default themes. It's now maintained there. The version in this repo is out of date and may not work.
 
 ![Screenshot](http://pie.gd/i/141030x3xzz.png)
 
