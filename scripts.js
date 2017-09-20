@@ -9,7 +9,8 @@ Succinct = {
         var previousSender = Succinct.getSenderNickname(previousLine);
         var sender = Succinct.getSenderNickname(line);
 
-        if (sender === null || previousSender === null) {
+        if (sender === null || previousSender === null)
+        {
             return;
         }
 
@@ -23,7 +24,8 @@ Succinct = {
         }
     },
 
-    getPreviousLine: function (line) {
+    getPreviousLine: function (line)
+    {
         var previousLine = line.previousElementSibling;
 
         if (previousLine &&
@@ -36,22 +38,40 @@ Succinct = {
         return null;
     },
 
-    getLineType: function (line) {
+    getLineType: function (line)
+    {
         return ((line) ? line.getAttribute('ltype') : null);
     },
 
-    getMessage: function (line) {
+    getMessage: function (line)
+    {
         return ((line) ? line.querySelector('.message').textContent.trim() : null);
     },
 
-    getSenderElement: function (line) {
+    getSenderElement: function (line)
+    {
         return ((line) ? line.querySelector('.sender') : null);
     },
 
-    getSenderNickname: function (line) {
+    getSenderNickname: function (line)
+    {
         var sender = Succinct.getSenderElement(line);
         return ((sender) ? sender.getAttribute('nickname') : null);
     },
+
+    setWhoisTags: function(line, fromBuffer)
+    {
+        if (line.getAttribute('command') === '311' ||
+            line.getAttribute('command') === '378' ||
+            line.getAttribute('command') === '307' ||
+            line.getAttribute('command') === '319' ||
+            line.getAttribute('command') === '312' ||
+            line.getAttribute('command') === '671' ||
+            line.getAttribute('command') === '317')
+        {
+            line.classList.add('whois');
+        }
+    }
 };
 
 // -- Textual ------------------------------------------------------------------
@@ -63,11 +83,13 @@ Textual.viewBodyDidLoad = function()
     Textual.fadeOutLoadingScreen(1.00, 0.90);
 }
 
-Textual.messageAddedToView = function(line, fromBuffer) {
+Textual.messageAddedToView = function(line, fromBuffer)
+{
     var element = document.getElementById("line-" + line);
 
     // Succinct.handleBufferPlayback(lineNum, fromBuffer);
     Succinct.coalesceMessages(element);
+    Succinct.setWhoisTags(element);
 
     ConversationTracking.updateNicknameWithNewMessage(element);
 }
