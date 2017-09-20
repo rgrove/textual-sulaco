@@ -1,132 +1,73 @@
-var doc = document,
-    qs  = doc.querySelector;
-
 // -- Succinct -------------------------------------------------------------------
+
 var Succinct;
 
 Succinct = {
-    lineCache: {},
-    playbackMode: false,
+    coalesceMessages: function (line)
+    {
+        var previousLine = Succinct.getPreviousLine(line);
+        var previousSender = Succinct.getSenderNickname(previousLine);
+        var sender = Succinct.getSenderNickname(line);
 
-    coalesceMessages: function (lineNum, fromBuffer) {
-        // doc.body.prepareForMutation();
-        // Succinct.getLineEl(lineNum).prepareForMutation();
-        // Succinct.getLineEl(lineNum).classList.prepareForMutation();
-        // Succinct.getSenderEl(lineEl).prepareForMutation();
-
-        var lineEl     = Succinct.getLineEl(lineNum),
-            prevLineEl = lineEl && Succinct.getLineEl(lineEl.previousElementSibling),
-            prevSender = Succinct.getSenderNick(prevLineEl),
-            sender     = Succinct.getSenderNick(lineEl);
-
-        if (!sender || !prevSender) {
+        if (sender === null || previousSender === null) {
             return;
         }
 
-        if (sender === prevSender
-                && Succinct.getLineType(lineEl) === 'privmsg'
-                && Succinct.getLineType(prevLineEl) === 'privmsg') {
+        if (sender === previousSender &&
+            Succinct.getLineType(line) === 'privmsg' && 
+            Succinct.getLineType(previousLine) === 'privmsg')
+        {
 
-            // Succinct.getLineEl(lineNum).prepareForMutation();
-            // Succinct.getLineEl(lineNum).classList.prepareForMutation();
-            // Succinct.getSenderEl(lineEl).prepareForMutation();
-           
-            lineEl.classList.add('coalesced');
-            Succinct.getSenderEl(lineEl).innerHTML = '';
+            line.classList.add('coalesced');
+            Succinct.getSenderElement(line).innerHTML = '';
         }
     },
 
-    getLineEl: function (lineNum) {
-        if (typeof lineNum === 'string') {
-            return doc.getElementById('line' + lineNum);
-        }
+    getPreviousLine: function (line) {
+        var previousLine = line.previousElementSibling;
 
-        if (lineNum && lineNum.classList
-                && lineNum.classList.contains('line')) {
-            return lineNum;
+        if (previousLine &&
+            previousLine.classList &&
+            previousLine.classList.contains('line'))
+        {
+            return previousLine;
         }
 
         return null;
     },
 
     getLineType: function (line) {
-        line = Succinct.getLineEl(line);
-        return line ? line.getAttribute('type') : null;
+        return ((line) ? line.getAttribute('ltype') : null);
     },
 
     getMessage: function (line) {
-        line = Succinct.getLineEl(line);
-        return line ? line.querySelector('.message').textContent.trim() : null;
+        return ((line) ? line.querySelector('.message').textContent.trim() : null);
     },
 
-    getSenderEl: function (line) {
-        line = Succinct.getLineEl(line);
-        return line ? line.querySelector('.sender') : null;
+    getSenderElement: function (line) {
+        return ((line) ? line.querySelector('.sender') : null);
     },
 
-    getSenderNick: function (line) {
-        var senderEl = Succinct.getSenderEl(line);
-        return senderEl ? senderEl.getAttribute('nick') : null;
+    getSenderNickname: function (line) {
+        var sender = Succinct.getSenderElement(line);
+        return ((sender) ? sender.getAttribute('nickname') : null);
     },
-
-    handleBufferPlayback: function (lineNum, fromBuffer) {
-        var line = Succinct.getLineEl(lineNum),
-            message;
-
-        if (Succinct.getSenderNick(line) === '***') {
-            message = Succinct.getMessage(line);
-
-            if (message === 'Buffer Playback...') {
-                line.classList.add('znc-playback-start');
-                Succinct.playbackMode = true;
-            } else if (message === 'Playback Complete.') {
-                line.classList.add('znc-playback-end');
-                Succinct.playbackMode = false;
-            }
-
-            return;
-        }
-
-        if (Succinct.playbackMode) {
-            var match;
-
-            line.classList.add('znc-playback');
-
-            message = Succinct.getMessage(line);
-            match   = message.match(/^\[(\d\d:\d\d:\d\d)\] /);
-
-            if (match) {
-                var msgEl = line.querySelector('.message');
-
-                line.querySelector('.time').textContent = match[1];
-                msgEl.innerHTML = msgEl.innerHTML.replace(/^\s*\[\d\d:\d\d:\d\d\]/, '');
-            }
-        }
-    }
 };
 
 // -- Textual ------------------------------------------------------------------
 
 // Defined in: "Textual.app -> Contents -> Resources -> JavaScript -> API -> core.js"
 
-// Textual.newMessagePostedToView = function (lineNum) {
-//     Succinct.handleBufferPlayback(lineNum);
-//     Succinct.coalesceMessages(lineNum);
-// };
+Textual.viewBodyDidLoad = function()
+{
+    Textual.fadeOutLoadingScreen(1.00, 0.90);
+}
 
-Textual.messageAddedToView = function(lineNumber, fromBuffer) {
-    Succinct.handleBufferPlayback(lineNum, fromBuffer);
-    Succinct.coalesceMessages(lineNum, fromBuffer);
-};
+Textual.messageAddedToView = function(line, fromBuffer) {
+    var element = document.getElementById("line-" + line);
 
-Textual.viewFinishedLoading = function () {
-    Textual.fadeOutLoadingScreen(1.00, 0.95);
+    // Succinct.handleBufferPlayback(lineNum, fromBuffer);
+    Succinct.coalesceMessages(element);
 
-    // setTimeout(function () {
-    //     Textual.scrollToBottomOfView();
-    // }, 300);
-};
-
-Textual.viewFinishedReload = function () {
-    Textual.viewFinishedLoading();
-};
+    ConversationTracking.updateNicknameWithNewMessage(element);
+}

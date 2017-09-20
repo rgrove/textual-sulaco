@@ -1,7 +1,22 @@
-<div type="{{lineType}}" class="line {{lineClassAttributeRepresentation}}" id="line{{lineNumber}}" command="{{command}}">
-    <span class="sender"></span>
-	<span class="message" type="{{lineType}}">
-		{{{formattedMessage}}}
-	</span>
-    <span class="time" title={{localizedTimestamp}}>{{formattedTimestamp}}</span>
+
+<div 	ltype="{{lineType}}" 
+
+{{^isRemoteMessage}}
+		mtype="{{nicknameType}}"
+{{/isRemoteMessage}}
+
+		command="{{command}}"
+		class="line {{lineClassAttributeRepresentation}}" 
+		id="line-{{lineNumber}}"
+		timestamp="{{timestamp}}">
+
+	<span class="sender"></span>
+
+	<span class="message" ltype="{{lineType}}">{{{formattedMessage}}}</span>
+
+	<span class="time"
+
+	{{^ isEmpty(localizedTimestamp) }}
+		title="{{localizedTimestamp}}"
+	{{/ isEmpty(localizedTimestamp) }}>{{formattedTimestamp}} </span>
 </div>
