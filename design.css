@@ -177,7 +177,8 @@ body[type*=server] .sender { display: none; }
     padding: 2 8px;
     line-height: 1.0rem;
 
-    /*border-bottom: #ff0000 !important;*/
+    border-bottom: 1px solid transparent;
+    /*border-bottom: #ff0000;*/
 }
 
 /*body[type*=channel]*/ .event .time {
@@ -186,10 +187,21 @@ body[type*=server] .sender { display: none; }
     font-size: 0.8em !important;
     padding: 2 8px;
     line-height: 1.0rem;
+
+    border-bottom: 1px solid transparent;
+}
+
+.event + * + .event {
+    /*border-bottom: 1px solid #ff0000;*/
 }
 
 .event:hover .message, .event:hover .time{
     color: #839496 !important;
+}
+
+.event + :not(.event) .message, 
+.event + :not(.event) .time {
+    border-top: 1px solid #073642;
 }
 
 /* Affects only the before message, in this */
@@ -198,6 +210,8 @@ body[type*=server] .sender { display: none; }
 .event .message:before {
     content: '» ';
 }
+
+
 
 /* Different symbols for join/leave messages */
 /* for easier visual reference. */
@@ -276,48 +290,6 @@ body div.line[ltype*=off-the-record-encryption-status] p {
 .line[type*=notice] .time {
     background-color: #073642;
     color: #93a1a1 !important;
-}
-
-/* Shifts the event messages slightly to the right */
-.event > * {
-    padding: 2 8px;
-
-    /* First/solitary events */
-    /*border-bottom: 1px solid transparent;*/
-}
-
-/* These are lifted from the Colloquy original */
-/* in order to compress channel events. */
-
-/* This block controls subsequent events */
-.event + .event > * {
-    padding: 2 8px;
-    /*position: relative;*/
-    /* Un-do first event's bottom padding. */
-    /*top: -4px;*/
-
-    /* consecutive events */
-    border-bottom: 1px solid transparent;
-}
-
-.message + .event > * {
-    border-bottom: 1px solid transparent; /* no effect? */
-}
-
-.event + .message > * {
-    padding: 0 8px;
-    position: relative;
-    /* Un-do first event's bottom padding. */
-    top: -4px;
-    border-bottom: 1px solid transparent; /* no effect? */
-}
-
-.event + .message {
-    padding: 0 8px;
-    /*position: relative;*/
-    /* Un-do first event's bottom padding. */
-    /*top: -4px;*/
-    /*border-top: 1px solid #073642; */
 }
 
 body[type*=server] .event .message {
