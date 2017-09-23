@@ -211,8 +211,6 @@ body[type*=server] .sender { display: none; }
     content: '» ';
 }
 
-
-
 /* Different symbols for join/leave messages */
 /* for easier visual reference. */
 .line[ltype*=join] .message:before {
@@ -228,7 +226,7 @@ body[type*=server] .sender { display: none; }
 .line[ltype*=part] .message:before,
 .line[ltype*=quit] .message:before {
     content: '← ';
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 /* Red for leaving */
