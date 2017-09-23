@@ -93,3 +93,8 @@ Textual.messageAddedToView = function(line, fromBuffer)
 
     ConversationTracking.updateNicknameWithNewMessage(element);
 }
+
+Textual.nicknameSingleClicked = function(e)
+{
+    ConversationTracking.nicknameSingleClickEventCallback(e);
+}
