@@ -88,7 +88,7 @@ body[type*=server] #body_home {
 }
 
 body[type*=server] .message {
-    max-width: 90%;
+    max-width: 100%; /* BADBADNOTGOOD YA CHANGED THIS B (90%) */
 }
 
 .time {
@@ -96,7 +96,7 @@ body[type*=server] .message {
     padding: 4px 8px 4px;
 }
 
-/* Background of  */
+/* Background of ??? */
 .sender,
 .time {
     background: #002b36;
@@ -174,7 +174,7 @@ body[type*=server] .sender { display: none; }
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em !important;
-    padding: 2 8px;
+    padding: 3px 8px 1px;
     line-height: 1.0rem;
 
     border-bottom: 1px solid transparent;
@@ -185,14 +185,11 @@ body[type*=server] .sender { display: none; }
     color: #444444 !important;
     background: #000000;
     font-size: 0.8em !important;
-    padding: 2 8px;
+    padding: 3px 8px 1px;
+    /*padding: 2 8px;*/
     line-height: 1.0rem;
 
     border-bottom: 1px solid transparent;
-}
-
-.event + * + .event {
-    /*border-bottom: 1px solid #ff0000;*/
 }
 
 .event:hover .message, .event:hover .time{
@@ -558,8 +555,8 @@ img {
 
 /* Nickname Colors */
 
-/* Creates an identifying box around nicknames referred */
-/* to in messages. */
+/* Creates an identifying box around nicknames */
+/* referred to in messages. */
 body .inline_nickname {
     color: #fff;
     display: inline-block;
